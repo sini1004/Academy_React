@@ -1,0 +1,33 @@
+@mixin box($width:500px,$height:50px){
+  width:$width;
+  height:$height;
+  border:1px solid lightskyblue;
+  padding-left:20px;
+}
+
+
+.item {
+  @include box;
+  display:flex;
+  align-items: center;
+}
+.input-style{ 
+  @include box(400px);
+}
+.btn-style {
+  @include box(100px,54px);
+  padding-left:0;
+  background:lightskyblue;
+  vertical-align:bottom;
+  &:hover {
+    background: {
+      color:black;
+    }
+    border:0;
+    color:#fff;
+  }
+}
+
+.h1 {
+  color:lightskyblue;
+}
