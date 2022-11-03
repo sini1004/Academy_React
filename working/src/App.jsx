@@ -53,7 +53,11 @@ function reducer(state, action) {
           user.id === action.id ? {...user, active : !user.active} : user
         ) //현재 상태값에서 배열들만
       };
-
+    case 'REMOVE_USER':
+      return {
+        ...state,
+        users: state.users.filter(user => user.id !== action.id) //결과값이 새로운 값을 만듬
+      }
     default:
       throw new Error('action 없음!');
       // return state;
@@ -97,7 +101,14 @@ function App() {
     dispatch({
       type: 'TOGGLE_USER',
       id
-    })
+    });
+  }, []);
+
+  const onRemove = useCallback ((id) => {
+    dispatch({
+      type: 'REMOVE_USER',
+      id
+    });
   }, []);
 
   return (
@@ -108,7 +119,7 @@ function App() {
         onChange = {onChange} //onChange 함수 발생
         onCreate = {onCreate} //onCreate 함수 발생
       />
-      <UserList users={users} onToggle = {onToggle} />  <br />
+      <UserList users={users} onToggle = {onToggle} onRemove = {onRemove}/>  <br />
       <div>Active 상태의 사용자 수 : {count} </div>
     </>
   );
