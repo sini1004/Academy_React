@@ -1,3 +1,5 @@
+// 커스텀 hooks - 반복되는 로직을 쉽게 재사용
+// 이름은 앞에 use키워드로 시작, 그 안에 함수 
 import React, { useReducer, useCallback, useRef, useMemo}  from 'react';
 import './App.css';
 import UserList from './UserList'
