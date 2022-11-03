@@ -4,9 +4,10 @@ import React, { useReducer, useCallback, useRef, useMemo}  from 'react';
 import './App.css';
 import UserList from './UserList'
 import CreateUser from './CreateUser'
+import useInputs from './useInputs' //만들어 놓은 커스텀 hook useInputs을 불러옴
 
-const initialState = { //inputs, users 배열 초기화
-  inputs: {username:'', email:''},
+const initialState = { 
+  //input객체
   users: [     
     { id:1, 
       username:'blueDragon', 
@@ -35,18 +36,9 @@ function countActiveUsers(users) {
 //reducer함수 정의 : 상태를 업데이트 하는 함수
 function reducer(state, action) {
   switch (action.type) {
-    case 'CHANGE_INPUT':
-      return {
-        ...state, //원래값 그대로 가져옴
-        inputs: { 
-          ...state.inputs,
-          [action.name] : action.value
-        }
-      };
     case 'CREATE_USER':
       return {
-        inputs: initialState.inputs,
-        users: state.users.concat(action.user) //기존 state에 추가, user는 action을 통해 받아왔음
+        users: state.users.concat(action.user) 
       };
     case 'TOGGLE_USER':
       return {
@@ -69,19 +61,15 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const {users} = state;
-  const {username, email} = state.inputs;
-  const nextId = useRef(4); //useRef : 리렌더링 하지 않는다. 컴포넌트의 속성만 조회&수정
+  const nextId = useRef(4); 
+  //useInputs 사용을 위한 세팅
+  const [form, onChange, reset] = useInputs({
+    username : '',
+    email : ''
+  });
 
-  //onChange 함수
-  const onChange = useCallback((e) => { //useCallback : 특정 함수를 새로 만들지 않고 재사용하고 싶을 때 사용하는 함수
-    const { name, value } = e.target;
-    //dispatch : HTML 안에서 reducer함수를 동작시킬 수 있음.
-    dispatch({
-      type : 'CHANGE_INPUT', //보통 대문자로 해줌
-      name,
-      value
-    })
-  }, []); //depth : 참조할 것 
+  const {username, email} = form;
+
 
   const onCreate = useCallback (() => {
     dispatch({
@@ -92,8 +80,9 @@ function App() {
         email
       }
     });
+    reset(); //setInput에서 만든 초기화 함수 사용
     nextId.current += 1;
-  }, [username, email]);
+  }, [username, email, reset]);
 
   //useMemo : 랜더링이 될때 users 배열이 바뀔때만 실행
   //active가 적용된 user의 수를 나타내는 변수 count
@@ -115,11 +104,11 @@ function App() {
 
   return (
     <>
-      <CreateUser 
-        username = {username} 
-        email = {email} 
-        onChange = {onChange} //onChange 함수 발생
-        onCreate = {onCreate} //onCreate 함수 발생
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
       />
       <UserList users={users} onToggle = {onToggle} onRemove = {onRemove}/>  <br />
       <div>Active 상태의 사용자 수 : {count} </div>
