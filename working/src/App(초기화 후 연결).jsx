@@ -36,9 +36,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const {users} = state;
-  const {username, email} = state.inputs;
+  const [state, dispatch] = useReducer(reducer, initialState); //reducer 정의
+//const [초기상태, 전달해줄것] = useReducer(내가 사용할 함수, 초기값)
+  const {users} = state; //기본상태(state) 안에 users가 있다 => 비구조화 할당, users배열만 추출
+  const {username, email} = state.inputs; //state안에 input 2개 
 
   return (
     <>
