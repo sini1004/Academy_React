@@ -46,7 +46,7 @@ function App() {
   const {username, email} = state.inputs;
 
   //onChange 함수
-  const onChange = (e) => {
+  const onChange = useCallback((e) => { //useCallback : 특정 함수를 새로 만들지 않고 재사용하고 싶을 때 사용하는 함수
     const { name, value } = e.target;
     //dispatch : HTML 안에서 reducer함수를 동작시킬 수 있음.
     dispatch({
@@ -54,7 +54,7 @@ function App() {
       name,
       value
     })
-  }
+  }, [inputs]) //변경되는 
 
   return (
     <>
