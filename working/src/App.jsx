@@ -46,6 +46,14 @@ function reducer(state, action) {
         inputs: initialState.inputs,
         users: state.users.concat(action.user) //기존 state에 추가, user는 action을 통해 받아왔음
       };
+    case 'TOGGLE_USER':
+      return {
+        ...state, //현재 상태 가져옴
+        users: state.users.map(user =>
+          user.id === action.id ? {...user, active : !user.active} : user
+        ) //현재 상태값에서 배열들만
+      };
+
     default:
       throw new Error('action 없음!');
       // return state;
@@ -85,6 +93,13 @@ function App() {
   //active가 적용된 user의 수를 나타내는 변수 count
   const count = useMemo(() => countActiveUsers(users), [users]);
 
+  const onToggle = useCallback ((id) => {
+    dispatch({
+      type: 'TOGGLE_USER',
+      id
+    })
+  }, []);
+
   return (
     <>
       <CreateUser 
@@ -93,7 +108,7 @@ function App() {
         onChange = {onChange} //onChange 함수 발생
         onCreate = {onCreate} //onCreate 함수 발생
       />
-      <UserList users={users} />  <br />
+      <UserList users={users} onToggle = {onToggle} />  <br />
       <div>Active 상태의 사용자 수 : {count} </div>
     </>
   );
