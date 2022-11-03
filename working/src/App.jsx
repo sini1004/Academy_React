@@ -81,6 +81,8 @@ function App() {
     nextId.current += 1;
   }, [username, email]);
 
+  //useMemo : 랜더링이 될때 users 배열이 바뀔때만 실행
+  //active가 적용된 user의 수를 나타내는 변수 count
   const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
