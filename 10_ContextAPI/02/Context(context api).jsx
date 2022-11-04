@@ -1,7 +1,8 @@
 //Context API 를 사용한 전역 값 관리
 //Context : 리액트 컴포넌트간에 어떠한 값을 공유할수 있게 해주는 기능
+//유동적 
 
-import React, {createContext, useContext} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 
 const MyContext = createContext('defaultValue');
 //createContext로 만든 변수(MyContext)는 컴포넌트처럼 쓰임
@@ -20,9 +21,12 @@ function GrandParent() {
 }
 
 function Context() {
+  const [value, setValue] = useState(true); //상태 설정
+
   return (
-    <MyContext.Provider value='SINI'>
-      <GrandParent text='SINI'/>
+    <MyContext.Provider value={value ? 'SINI' : 'who?'}>
+      <GrandParent /> <br />
+      <button onClick={() => setValue(!value)}>Click ME!</button>
     </MyContext.Provider>
   )
 }
