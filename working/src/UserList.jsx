@@ -1,26 +1,38 @@
-//컴포넌트 안에 또 컴포넌트
-
-import React from 'react'
+//Context API를 사용한 전역 값 관리
+import React, {useContext} from 'react' //useContext 사용!
+import { UserDispatch } from './App';
 
  //또다른 컴퍼넌트 추가
-const Item = ({ user, onRemove, onToggle }) => {   //onToggle추가
-  const {username, email, id, active } = user; //추출
+const Item = ({ user }) => {  
+  const {username, email, id, active } = user; 
+  const dispatch = useContext(UserDispatch); //컨텍스트 사용
+
   return (
     <div>
       <b 
         style={ {color: active ? 'green':'black', cursor:'pointer' }} 
-        onClick={ ()=> onToggle(id) }
+        onClick={ ()=> {dispatch(
+          {
+            type: 'TOGGLE_USER',
+            id
+          }
+        )} }
         >
         {username}
       </b>
       <span> ( {email} )</span>
-      <button onClick={() => onRemove(id)}>삭제</button>
+      <button onClick={() => {dispatch( //컨텍스트로 만들어진 dispatch사용
+        {
+          type: 'REMOVE_USER',
+          id
+        }
+      )}}>삭제</button>
     </div>
   )
 }
 
 
-const UserList = ({users, onRemove, onToggle}) => {  //props로 users(배열)받아옴
+const UserList = ({users}) => {  //props로 users(배열)받아옴
 
   return (
     <>
@@ -29,10 +41,8 @@ const UserList = ({users, onRemove, onToggle}) => {  //props로 users(배열)받
 
       { users.map( (user) => 
         <Item 
-        user={user} 
-        key={user.id}
-        onRemove={onRemove} 
-        onToggle={onToggle} 
+          user={user} 
+          key={user.id}
         /> )
         }      
     </> 
