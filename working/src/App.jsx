@@ -11,3 +11,9 @@ function App() {
 }
 
 export default App;
+
+/**
+ * tailwindcss : https://tailwindcss.com/
+ * yarn add -D tailwindcss
+ * yarn tailwindcss init
+ */
