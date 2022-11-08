@@ -3,7 +3,7 @@ $PINK5: #f06595;
 $TEAL5: #20c997;
 $ORANGE5: #ff922b;
 
-@mixin btnColor {
+@mixin btnColor($color) {
   background: $color;
   &:hover {
     background: lighten($color, 10%);
