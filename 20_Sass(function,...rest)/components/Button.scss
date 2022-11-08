@@ -1,0 +1,83 @@
+$INDIGO4: #748ffc;
+$PINK5: #f06595;
+$TEAL5: #20c997;
+$ORANGE5: #ff922b;
+
+@mixin btnColor($color) {
+  background: $color;
+  &:hover {
+    background: lighten($color, 10%);
+  }
+  &:active {
+    background: darken($color, 10%);
+  }
+
+  //outline - 평소 모습 테두리 형태
+  &.outline {
+    background: none;
+    color: $color;
+    border: 3px solid $color;
+    &:hover {
+      background: $color;
+      color: white;
+    }
+  }
+}
+
+.Button {
+  color: white;
+  font-weight: bold;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  //사이즈 관리
+  &.large {
+    width: 200px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  &.medium {
+    width: 100px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  &.small {
+    width: 60px;
+    height: 30px;
+    font-size: 0.6rem;
+  }
+
+  //색상 관리
+  &.indigo {
+    @include btnColor($INDIGO4);
+  }
+  &.pink {
+    @include btnColor($PINK5);
+  }
+  &.teal {
+    @include btnColor($TEAL5);
+  }
+  &.orange {
+    @include btnColor($ORANGE5);
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+
+  &.fullWidth {
+    width: 100%;
+    justify-content: center;
+    & + & {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// .Button + .Button {
+//   //.Button 뒤에 있는 .Button
+//   margin: 1rem;
+// }
