@@ -6,7 +6,7 @@ function App() {
 	return (
 		<div className="App">
 			<div className="Btnwrap">
-				<Button size="large" color="orange">
+				<Button size="large" color="orange" outline>
 					오렌지버튼
 				</Button>
 				<Button color="orange">오렌지버튼</Button>
@@ -20,7 +20,7 @@ function App() {
 					핑크버튼
 				</Button>
 				<Button color="pink">핑크버튼</Button>
-				<Button size="small" color="pink">
+				<Button size="small" color="pink" outline>
 					핑크버튼
 				</Button>
 			</div>
@@ -35,8 +35,19 @@ function App() {
 			</div>
 			<div className="Btnwrap">
 				<Button size="large">기본버튼</Button>
-				<Button>기본버튼</Button>
+				<Button outline>기본버튼</Button>
 				<Button size="small">기본버튼</Button>
+			</div>
+			<div className="Btnwrap">
+				<Button size="large" color="pink" fullWidth>
+					기본버튼
+				</Button>
+				<Button size="large" color="teal" outline fullWidth>
+					기본버튼
+				</Button>
+				<Button size="large" color="orange" fullWidth>
+					기본버튼
+				</Button>
 			</div>
 		</div>
 	);
