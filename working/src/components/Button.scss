@@ -1,27 +1,21 @@
 $INDIGO4: #748ffc;
+$PINK5: #f06595;
+$TEAL5: #20c997;
+$ORANGE5: #ff922b;
 
 .Button {
-  background-color: $INDIGO4;
   color: white;
   font-weight: bold;
   border: 0;
   outline: none;
   border-radius: 5px;
   cursor: pointer;
-  &:hover {
-    background: lighten($INDIGO4, 10%);
-    //background: lighten($color: #000000, $amount: 0)
-    //sass함수 : lighten  사용, 색상 10% 만큼 밝게
-  }
-  &:active {
-    background: darken($INDIGO4, 10%);
-    //sass함수 : darken  사용, 색상 10% 만큼 어둡게
-  }
 
   //사이즈 관리
   &.large {
     width: 200px;
     height: 60px;
+    font-size: 1.4rem;
   }
   &.medium {
     width: 100px;
@@ -33,6 +27,48 @@ $INDIGO4: #748ffc;
     height: 30px;
     font-size: 0.6rem;
   }
+
+  //색상 관리
+  &.indigo {
+    background: $INDIGO4;
+    &:hover {
+      background: lighten($INDIGO4, 10%);
+      //background: lighten($color: #000000, $amount: 0)
+      //sass함수 : lighten  사용, 색상 10% 만큼 밝게
+    }
+    &:active {
+      background: darken($INDIGO4, 10%);
+      //sass함수 : darken  사용, 색상 10% 만큼 어둡게
+    }
+  }
+  &.pink {
+    background: $PINK5;
+    &:hover {
+      background: lighten($PINK5, 10%);
+    }
+    &:active {
+      background: darken($PINK5, 10%);
+    }
+  }
+  &.teal {
+    background: $TEAL5;
+    &:hover {
+      background: lighten($TEAL5, 10%);
+    }
+    &:active {
+      background: darken($TEAL5, 10%);
+    }
+  }
+  &.orange {
+    background: $ORANGE5;
+    &:hover {
+      background: lighten($ORANGE5, 10%);
+    }
+    &:active {
+      background: darken($ORANGE5, 10%);
+    }
+  }
+
   & + & {
     margin-left: 1rem;
   }
