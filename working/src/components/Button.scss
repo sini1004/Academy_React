@@ -1,0 +1,21 @@
+$INDIGO4: #748ffc;
+
+.Button {
+  background-color: $INDIGO4;
+  color: white;
+  font-weight: bold;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  &:hover {
+    background: lighten($INDIGO4, 10%);
+    //background: lighten($color: #000000, $amount: 0)
+    //sass함수 : lighten  사용, 색상 10% 만큼 밝게
+  }
+  &:active {
+    background: darken($INDIGO4, 10%);
+    //sass함수 : darken  사용, 색상 10% 만큼 어둡게
+  }
+}

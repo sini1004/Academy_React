@@ -1,16 +1,12 @@
 import React from "react";
-import "./App.css";
-import Button1 from "./components/Button1";
-import Button2 from "./components/Button2";
-// import Button1 from './components/Button1';
+import "./App.scss";
+import Button from "./components/Button";
 
 function App() {
 	return (
-		<div>
-			<div>
-				<Button1 />
-				<Button2 />
-			</div>
+		<div className="App">
+			<Button>파란버튼</Button>
+			{/* children prop : 컴포넌트를 html처럼 사용 */}
 		</div>
 	);
 }
