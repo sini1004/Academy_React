@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoAdd from "../TodoAdd/TodoAdd";
 
 const TodoList = () => {
 	const [todos, setTodos] = useState([
@@ -18,8 +19,14 @@ const TodoList = () => {
 			status: "active", //나중에 진행중/완료 구분
 		},
 	]);
+
+	const handleAdd = (todo) => {
+		setTodos([...todos, todo]);
+	};
+
 	return (
 		<section>
+			<TodoAdd onAdd={handleAdd} />
 			<ul>
 				{todos.map((item) => (
 					<li key={item.id}>{item.text}</li>
