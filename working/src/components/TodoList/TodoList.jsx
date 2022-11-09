@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoAdd from "../TodoAdd/TodoAdd";
+import Todo from "../Todo/Todo";
 
 const TodoList = () => {
 	const [todos, setTodos] = useState([
@@ -29,7 +30,7 @@ const TodoList = () => {
 			<TodoAdd onAdd={handleAdd} />
 			<ul>
 				{todos.map((item) => (
-					<li key={item.id}>{item.text}</li>
+					<Todo key={item.id} todo={item} />
 				))}
 			</ul>
 		</section>
