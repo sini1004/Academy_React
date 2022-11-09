@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import TailwindComponent from "./TailwindComponent";
 
 function App() {
 	return (
 		<>
-			<TailwindComponent />
+			<h1>Todo</h1>
 		</>
 	);
 }
