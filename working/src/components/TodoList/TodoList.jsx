@@ -51,6 +51,7 @@ const TodoList = ({ filter }) => {
 	);
 };
 
+// TodoList 컴포넌트 바깥 부분에 필터링 하는 함수를 정의
 function getFilteredItems(todos, filter) {
 	if (filter === "all") {
 		return todos;
