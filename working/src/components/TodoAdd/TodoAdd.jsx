@@ -12,7 +12,7 @@ const TodoAdd = ({ onAdd }) => {
 		if (text.trim().length === 0) {
 			return;
 		}
-		onAdd({ id: uuidv4(), text, status: "active" });
+		onAdd({ id: uuidv4(), text: text.trim(), status: "active" });
 		setText("");
 	};
 
