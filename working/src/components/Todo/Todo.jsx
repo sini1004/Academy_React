@@ -1,7 +1,7 @@
 import React from "react";
 import { FiTrash } from "react-icons/fi";
 
-const Todo = ({ todo, onUpdate }) => {
+const Todo = ({ todo, onUpdate, onDelete }) => {
 	const { text, status } = todo;
 	const handleChange = (e) => {
 		const status = e.target.checked ? "completed" : "active";
@@ -18,7 +18,7 @@ const Todo = ({ todo, onUpdate }) => {
 				checked={status == "completed"}
 				onChange={handleChange}
 			/>
-			<label htmlFor="checkbox">{todo.text}</label>
+			<label htmlFor="checkbox">{text}</label>
 			<span>
 				<button onClick={handleDelete}>
 					<FiTrash />
