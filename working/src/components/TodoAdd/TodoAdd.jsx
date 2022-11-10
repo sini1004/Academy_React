@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FiTrash } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 
 const TodoAdd = ({ onAdd }) => {
@@ -24,7 +25,9 @@ const TodoAdd = ({ onAdd }) => {
 				value={text}
 				onChange={handleChange} //변경될때마다 handleChange호출
 			/>
-			<button>add</button>
+			<button>
+				<FiTrash />
+			</button>
 		</form>
 	);
 };
