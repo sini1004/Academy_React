@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FiTrash } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
 import { v4 as uuidv4 } from "uuid";
+import styles from "./TodoAdd.module.css";
 
 const TodoAdd = ({ onAdd }) => {
 	const [text, setText] = useState("");
@@ -18,15 +19,16 @@ const TodoAdd = ({ onAdd }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className={styles.form} onSubmit={handleSubmit}>
 			<input
+				className={styles.input}
 				type="text"
 				placeholder="할 일 추가하기"
 				value={text}
 				onChange={handleChange} //변경될때마다 handleChange호출
 			/>
-			<button>
-				<FiTrash />
+			<button className={styles.button}>
+				<AiOutlinePlus />
 			</button>
 		</form>
 	);

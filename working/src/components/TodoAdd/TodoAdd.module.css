@@ -1,0 +1,21 @@
+.form {
+	width: 100%;
+	padding: 1.3rem;
+	display: flex;
+}
+.input {
+	flex: 1;
+	height: 50px;
+	padding: 0.5rem;
+	border-radius: 0.5rem 0 0 0.5rem;
+	border: none;
+	font-size: 1.2rem;
+}
+.button {
+	padding: 0 1rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	cursor: pointer;
+}
+.button svg {
+	font-size: 1.2rem;
+}
