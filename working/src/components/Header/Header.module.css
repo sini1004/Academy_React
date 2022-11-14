@@ -1,5 +1,8 @@
 .header {
 	background-color: var(--color-bg-dark);
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 .filters {
 	display: flex;
@@ -22,4 +25,15 @@
 	content: "";
 	display: block;
 	border: 1px solid black;
+}
+
+.toggle {
+	font-size: 1.4rem;
+	background-color: transparent;
+	cursor: pointer;
+	transition: 0.3s ease-out;
+}
+.toggle:hover {
+	transform: scale(1.1);
+	color: var(--color-accent);
 }
