@@ -1,0 +1,18 @@
+.header {
+	background-color: cornflowerblue;
+	color: white;
+	text-align: center;
+	padding: 15px 0;
+}
+
+.main {
+	height: 100%;
+	flex: 1;
+}
+
+.footer {
+	background-color: #2d2d2d;
+	color: white;
+	text-align: center;
+	padding: 15px 0;
+}
