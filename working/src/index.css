@@ -7,6 +7,12 @@
 	--color-accent: #df0038;
 }
 
+html.dark {
+	--color-bg: #203774;
+	--color-bg-dark: #221c27;
+	--color-accent: white;
+}
+
 * {
 	margin: 0;
 	padding: 0;
