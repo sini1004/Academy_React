@@ -1,0 +1,33 @@
+.todo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.6rem;
+	margin: 0.3rem;
+}
+.checkbox {
+	width: 1.5rem;
+}
+.text {
+	flex: 1;
+	margin-left: 0.5rem;
+	font-size: 1.3rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 0.3rem;
+	background-color: red;
+	display: flex;
+	justify-content: center;
+	transition: all 150ms ease-in;
+}
+.icon:hover {
+	background-color: var(--color-accent);
+	transform: scale(1.1);
+}
+.button {
+	background-color: transparent;
+}
