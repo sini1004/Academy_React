@@ -6,6 +6,7 @@ import Todo from "../Todo/Todo";
 import styles from "./TodoList.module.css";
 import { useEffect } from 'react';
 
+//localStorage에 저장된 todos를 가져와서 오브젝트형식으로 변환, 없으면 빈 배열
 function readTodosFromLocalStorage(){
 	const todos = localStorage.getItem('todos');
 	return todos ? JSON.parse(todos) : [];
