@@ -1,26 +1,19 @@
+//todos의 상태를 저장해서 다시 열었을때도 그대로
+
 import React, { useState } from "react";
 import TodoAdd from "../TodoAdd/TodoAdd";
 import Todo from "../Todo/Todo";
 import styles from "./TodoList.module.css";
+import { useEffect } from 'react';
+
+function readTodosFromLocalStorage(){
+	const todos = localStorage.getItem('todos');
+	return todos ? JSON.parse(todos) : [];
+}
 
 const TodoList = ({ filter }) => {
-	const [todos, setTodos] = useState([
-		{
-			id: "1",
-			text: "청소하기",
-			status: "active",
-		},
-		{
-			id: "2",
-			text: "필라테스 가기",
-			status: "active",
-		},
-		{
-			id: "3",
-			text: "세탁조 청소",
-			status: "active", //나중에 진행중/완료 구분
-		},
-	]);
+	//미리 입력해둔 todos가 아니라 이미 저장된 값을 가져옴.
+	const [todos, setTodos] = useState(readTodosFromLocalStorage());
 
 	const handleAdd = (todo) => {
 		setTodos([...todos, todo]);
@@ -34,6 +27,12 @@ const TodoList = ({ filter }) => {
 		setTodos(todos.filter((t) => t.id !== deleted.id));
 
 	const filtered = getFilteredItems(todos, filter);
+
+	//todos가 업데이트할 때 적용
+	useEffect(()=>{
+		localStorage.setItem('todos', JSON.stringify(todos))
+	}, [todos])
+	//JSON.stringify() : 자바스크립트의 값을 JSON 문자열로 변환
 
 	return (
 		<section className={styles.container}>
