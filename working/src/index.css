@@ -5,6 +5,7 @@
 	--color-gray: #d8d4d4;
 	--color-text: #272727;
 	--color-accent: #df0038;
+	--color-point: #fbb430;
 }
 
 html.dark {
@@ -29,7 +30,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: antiquewhite;
+	background-color: var(--color-point)
 }
 #root {
 	width: 100%;
@@ -37,10 +38,11 @@ body {
 	height: 60%;
 	border-radius: 1rem;
   padding: 1rem;
-	background-color: var(--color-gray);
+	background-color: var(--color-white);
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, .2);
 }
 
 button {
