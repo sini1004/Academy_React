@@ -27,7 +27,7 @@ function Users() {
         const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         setUsers(response.data); //가져온 데이터를 users로 설정
       } catch (e) {
-        console.log('error!!!!');
+        setError(e);
       }
       setLoading(false); //로딩이 끝났으니 false로 
     }
