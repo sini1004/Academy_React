@@ -13,7 +13,7 @@ function App() {
       console.log('내 위치 : ', lat, lon);
     })
   };
-
+  
   useEffect (()=>{
     getCurrentLocation();
   },[])
