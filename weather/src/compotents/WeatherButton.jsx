@@ -1,9 +1,13 @@
 import React from 'react'
+import { Button } from 'react-bootstrap';
 
 const WeatherButton = () => {
   return (
     <div>
-      <button>버튼</button>
+      <Button variant="primary">Current Location</Button>
+      <Button variant="outline-primary">Seoul</Button>
+      <Button variant="outline-primary">Jeju</Button>
+      <Button variant="outline-primary">Spain</Button>
     </div>
   )
 }

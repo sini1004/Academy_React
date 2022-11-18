@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBox from './compotents/WeatherBox';
 import WeatherButton from './compotents/WeatherButton';
+
 
 function App() {
   const getCurrentLocation = () => {
