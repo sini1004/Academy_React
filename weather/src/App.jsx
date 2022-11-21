@@ -8,6 +8,7 @@ import WeatherButton from './compotents/WeatherButton';
 function App() {
   //데이터가 있는지 없는지
   const [weather, setWeather] = useState(null);
+  const cities = ['Seoul', 'Jeju','Spain'];
 
   const getCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -34,8 +35,8 @@ function App() {
   return (
     <>
       <div className='container'>
-        <WeatherBox weather={weather}/>
-        <WeatherButton />
+        <WeatherBox weather={weather} />
+        <WeatherButton cities={cities} />
       </div>
     </>
   );
