@@ -14,24 +14,22 @@ function App() {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       //console.log('내 위치 : ', lat, lon);
-    })
+      getWeatherByCurrentLoction(lat, lon);
+    });
   };
 
   const getWeatherByCurrentLoction = async(lat, lon) => {
-    let url = `https://jsonplaceholder.typicode.com/posts`;
-    //let response = await fetch(url); //비동기적 url을 호출 해서 데이터를 가져올때까지 기다려줘
-    //let data = await response.json();
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=92792f29aa388e43e826fdb0ad0883c3&units=metric`;
+    let response = await fetch(url); //비동기적 url을 호출 해서 데이터를 가져올때까지 기다려줘
+    let data = await response.json();
     //fetch함수로 불러왔을때는 그대로 사용할 수 없음 - json()
-    setWeather();
-  }
+    setWeather(data);
+  };
 
   useEffect (()=>{
     getCurrentLocation();
-    getWeatherByCurrentLoction();
+    // getWeatherByCurrentLoction();
   },[]);
-
-  console.log('weather는? ', weather)
-
 
   return (
     <>
