@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0 0 0 0;}
   height: 100vh;
 }
 
-.menu_box {
+.weather_box {
   width: 80%;
   max-width: 650px;
   background: rgba(255, 255, 255, .5);
@@ -23,14 +23,13 @@ h1, h2, h3, h4, h5, h6 { margin: 0 0 0 0;}
   justify-content: center;
   align-items: center;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, .1);
-}
-.menu_box > div {
-  font-size: 1.5rem;
+  border: 5px solid #fff;
 }
 
 .button_box {
-
+  text-align: center;
 }
 .button_box .btn {
   margin: 0 5px;
+  border-radius: 30px;
 }
