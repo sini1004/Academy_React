@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0 0 0 0;}
 }
 
 .weather_box {
-  width: 80%;
+  width: 90%;
   max-width: 650px;
   background: rgba(255, 255, 255, .5);
   border-radius: 20px;
@@ -24,6 +24,7 @@ h1, h2, h3, h4, h5, h6 { margin: 0 0 0 0;}
   align-items: center;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, .1);
   border: 5px solid #fff;
+  text-align: center;
 }
 
 .button_box {
