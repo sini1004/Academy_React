@@ -59,12 +59,14 @@ function App() {
   //   getWeatherByCity();
   // },[city]);
 
+
+  //selectedCity={city} : 선택된 버튼 모양을 바꿔주기 위해 추가
   return (
     <>
       <div className='container'>
         {/* porps로 값 전달 */}
         <WeatherBox weather={weather} />
-        <WeatherButton cities={cities} setCity={setCity} handleCityChange={handleCityChange}/>
+        <WeatherButton cities={cities} setCity={setCity} handleCityChange={handleCityChange} selectedCity={city}/>
       </div>
     </>
   );
