@@ -3,9 +3,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBox from './compotents/WeatherBox';
 import WeatherButton from './compotents/WeatherButton';
+import SyncLoader from "react-spinners/SyncLoader";
 
 
 function App() {
+  //리액트 스피너 : 로딩 상태
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("#0d6efd");
+
   //데이터가 있는지 없는지
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState('');
@@ -22,18 +27,24 @@ function App() {
 
   const getWeatherByCurrentLoction = async(lat, lon) => {
     let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=92792f29aa388e43e826fdb0ad0883c3&units=metric`;
+
+    setLoading(true); //fetch 완료 전 로딩 작동
+
     let response = await fetch(url); //비동기적 url을 호출 해서 데이터를 가져올때까지 기다려줘
     let data = await response.json();
     //fetch함수로 불러왔을때는 그대로 사용할 수 없음 - json()
     setWeather(data);
+    setLoading(false);
   };
 
   //선택된 도시의 날씨를 가져오는 함수
   const getWeatherByCity = async() => {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city }&appid=92792f29aa388e43e826fdb0ad0883c3&units=metric`;
+    setLoading(true);
     let response = await fetch(url);
     let data = await response.json();
     setWeather(data);
+    setLoading(false);
   }
 
   const handleCityChange = (city) => {
@@ -64,9 +75,23 @@ function App() {
   return (
     <>
       <div className='container'>
+        {/* 로딩 */}
+
+        { loading ? 
+          <SyncLoader 
+            color={color}
+            loading={loading}
+            // cssOverride={override}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          /> : <></>
+        }
+
         {/* porps로 값 전달 */}
         <WeatherBox weather={weather} />
         <WeatherButton cities={cities} setCity={setCity} handleCityChange={handleCityChange} selectedCity={city}/>
+        
       </div>
     </>
   );
