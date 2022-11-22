@@ -85,6 +85,7 @@ function App() {
           </div>
       ) : (
         <div className="container">
+          <h1 className='title'>weather</h1>
           {/* porps로 값 전달 */}
           <WeatherBox weather={weather} />
           <WeatherButton 
