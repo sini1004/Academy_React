@@ -3,13 +3,12 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherBox from './compotents/WeatherBox';
 import WeatherButton from './compotents/WeatherButton';
-import SyncLoader from "react-spinners/SyncLoader";
+import BeatLoader from "react-spinners/BeatLoader";
 
 
 function App() {
   //리액트 스피너 : 로딩 상태
   const [loading, setLoading] = useState(false);
-  const [color, setColor] = useState("#0d6efd");
 
   //데이터가 있는지 없는지
   const [weather, setWeather] = useState(null);
@@ -74,25 +73,28 @@ function App() {
   //selectedCity={city} : 선택된 버튼 모양을 바꿔주기 위해 추가
   return (
     <>
-      <div className='container'>
-        {/* 로딩 */}
-
-        { loading ? 
-          <SyncLoader 
-            color={color}
-            loading={loading}
-            // cssOverride={override}
-            size={150}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          /> : <></>
-        }
-
-        {/* porps로 값 전달 */}
-        <WeatherBox weather={weather} />
-        <WeatherButton cities={cities} setCity={setCity} handleCityChange={handleCityChange} selectedCity={city}/>
-        
-      </div>
+      { loading ? (
+        <div className='container'>
+            <BeatLoader 
+              color="#0d6efd"
+              loading={loading}
+              size={30}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+      ) : (
+        <div className="container">
+          {/* porps로 값 전달 */}
+          <WeatherBox weather={weather} />
+          <WeatherButton 
+            cities={cities} 
+            setCity={setCity} 
+            handleCityChange={handleCityChange} 
+            selectedCity={city}
+          />  
+        </div>
+      )}
     </>
   );
 }
