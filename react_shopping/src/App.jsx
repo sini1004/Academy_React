@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import ProductAll from './page/ProductAll';
 import ProductDetail from './page/ProductDetail';
@@ -16,6 +16,7 @@ import ProductDetail from './page/ProductDetail';
  * 5. 로그인이 되어 있을때는 상품디테일페이지를 볼 수 있음
  * 6. 로그아웃기능 - 로그아웃 상태에선 다시 디테일 페이지 볼 수 없음, 로그인페이지 나옴
  * 7. 로그인, 로그아웃 토글버튼
+ * 8. 상품 검색 기능
  */
 function App() {
   return (
