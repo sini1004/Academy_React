@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react'
+import Login from './page/Login';
+import ProductAll from './page/ProductAll';
+import ProductDetail from './page/ProductDetail';
 
 //Routes는 Route를 감싸주고, 스위치 해주는 역할
 
