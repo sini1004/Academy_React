@@ -1,3 +1,6 @@
+//$npm install react-icons --save : react-icon 설치
+//$yarn add sass : sass 설치
+
 import React from 'react'
 import { FiLogIn } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";

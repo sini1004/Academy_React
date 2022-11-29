@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import ProductAll from './page/ProductAll';
