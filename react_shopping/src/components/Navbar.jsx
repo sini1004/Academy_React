@@ -3,6 +3,7 @@ import { FiLogIn } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";
 
 const Navbar = () => {
+  const menuList = ['woman','divided','man','kids','childern','sports','sale'];
   return (
     <>
       <div>
@@ -11,11 +12,13 @@ const Navbar = () => {
         </div>
       </div>
       <h1>
-        <img src="" alt="H&M" />
+        <img src="img/logo.png" alt="H&M" />
       </h1>
       <nav>
         <ul>
-          <li>woman</li>
+          {menuList.map((item) => (
+            <li>{item}</li>
+          ))}
         </ul>
       </nav>
       <div>
