@@ -4,6 +4,7 @@
 import React from 'react'
 import { FiLogIn } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";
+import './Navbar.scss'
 
 const Navbar = () => {
   const menuList = ['woman','divided','man','kids','childern','sports','sale'];
