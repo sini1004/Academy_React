@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react';
 
 const ProductAll = () => {
   const getProducts = async() => {
@@ -7,7 +8,11 @@ const ProductAll = () => {
     let data = await response.json();
 
     console.log(data);
-  }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div>ProductAll</div>
