@@ -1,8 +1,27 @@
 import React from 'react'
+import { FiLogIn } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <>
+      <div>
+        <div>
+          <FiLogIn /> <span>로그인</span>
+        </div>
+      </div>
+      <h1>
+        <img src="" alt="H&M" />
+      </h1>
+      <nav>
+        <ul>
+          <li>woman</li>
+        </ul>
+      </nav>
+      <div>
+        search
+        <input type="text" placeholder='제품검색'/>
+      </div>
+    </>
   )
 }
 

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import ProductAll from './page/ProductAll';
 import ProductDetail from './page/ProductDetail';
+import Navbar from './components/Navbar';
 
 //Routes는 Route를 감싸주고, 스위치 해주는 역할
 
@@ -21,6 +22,7 @@ import ProductDetail from './page/ProductDetail';
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path='/' element={<ProductAll/>} />
         <Route path='login' element={<Login/>} />
