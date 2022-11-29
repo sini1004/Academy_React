@@ -7,7 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import './Navbar.scss'
 
 const Navbar = () => {
-  const menuList = ['woman','divided','man','kids','childern','sports','sale'];
+  const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
   return (
     <>
       <div className='login_btn'>
