@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiLogIn } from "react-icons/fi";
+import { BiSearch } from "react-icons/bi";
 
 const Navbar = () => {
   return (
@@ -18,7 +19,7 @@ const Navbar = () => {
         </ul>
       </nav>
       <div>
-        search
+        <BiSearch />
         <input type="text" placeholder='제품검색'/>
       </div>
     </>
