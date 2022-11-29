@@ -22,8 +22,8 @@ const Navbar = () => {
       </h1>
       <nav>
         <ul className='menu_list'>
-          {menuList.map((item) => (
-            <li>{item}</li>
+          {menuList.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </nav>
