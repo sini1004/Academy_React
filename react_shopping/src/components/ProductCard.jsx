@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
   return (
     <div>
-      <img src="https://imageapac1.lacoste.com/dw/image/v2/BBCL_PRD/on/demandware.static/-/Sites-master/default/dw6b3da9fc/AF214E-52N_02S_20.jpg?imwidth=915&impolicy=product" alt="item01" />
+      <img src={item?.img} alt="item01" />
       <div>
         MD추천
       </div>
@@ -11,10 +11,10 @@ const ProductCard = () => {
         NEW
       </div>
       <div>
-        (여성) 케이블 조직 크루넥 가디건
+        {item.title}
       </div>
       <div>
-        299000
+        {item.price}원
       </div>
     </div>
   )
