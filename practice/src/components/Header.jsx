@@ -1,6 +1,8 @@
 import React from "react";
 
 const Header = (props) => {
+	const menu = ['menu1','menu2','menu3','menu4'];
+	const menuList = menu.map((i) => (<li>{i}</li>));
 	return (
 		<header>
 			<div className="header_inner">
@@ -12,21 +14,7 @@ const Header = (props) => {
 				{/* header end */}
 				<nav className="header_menu">
 					<ul>
-						<li>
-							<a href="">MENU1</a>
-						</li>
-						<li>
-							<a href="">MENU2</a>
-						</li>
-						<li>
-							<a href="">MENU3</a>
-						</li>
-						<li>
-							<a href="">MENU4</a>
-						</li>
-						<li>
-							<a href="">MENU5</a>
-						</li>
+						{menuList}
 					</ul>
 				</nav>
 				{/* nav end */}
