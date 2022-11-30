@@ -1,6 +1,11 @@
+//부트스트랩
+//npm install react-bootstrap bootstrap
+
 import React from 'react'
 import { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container, Row, Col} from 'react-bootstrap';
 
 const ProductAll = () => {
   const [productsList, setProductsList] = useState([]);
@@ -19,9 +24,15 @@ const ProductAll = () => {
 
   return (
     <div>
-      {productsList.map((menu)=>(
-        <ProductCard item = {menu}/>
-      ))}
+      <Container>
+        <Row>
+          {productsList.map((menu)=>(
+            <Col lg={3} sm={6} >
+              <ProductCard item = {menu}/>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   )
 }
