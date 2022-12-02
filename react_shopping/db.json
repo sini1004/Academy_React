@@ -6,7 +6,7 @@
       "title": "(여성) 케이블 조직 크루넥 가디건",
       "price": "299,000",
       "choice": true,
-      "new": true,
+      "new": false,
       "size": ["034", "036", "038", "040"]
     },
     {
@@ -24,7 +24,7 @@
       "title": "(남성) 베이직 V넥 방모 가디건",
       "price": "299,000",
       "choice": false,
-      "new": true,
+      "new": false,
       "size": ["003", "004", "005", "006", "007"]
     },
     {
@@ -77,8 +77,8 @@
       "img": "https://imageapac1.lacoste.com/dw/image/v2/BBCL_PRD/on/demandware.static/-/Sites-master/default/dw471ae30b/TJ2093-52N_001_20.jpg?imwidth=915&impolicy=product",
       "title": "(키즈) 크루넥 저지 티셔츠",
       "price":" 49,000",
-      "choice": true,
-      "new": true,
+      "choice": false,
+      "new": false,
       "size": ["08A", "10A", "12A"]
     },
     {

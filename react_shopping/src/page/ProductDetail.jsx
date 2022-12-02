@@ -1,8 +1,10 @@
 import React from 'react'
 
-const ProductDetail = () => {
+const ProductDetail = ({item}) => {
   return (
-    <div>ProductDetail</div>
+    <div>
+      <img src={item?.img} alt="item01" />
+    </div>
   )
 }
 
