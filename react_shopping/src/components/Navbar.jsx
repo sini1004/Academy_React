@@ -18,7 +18,7 @@ const Navbar = () => {
         <FiLogIn /> <span>로그인</span>
       </div>
       <h1>
-        <img src="img/logo.png" alt="H&M" />
+        <img src="img/logo.png" alt="LACOSTE" />
       </h1>
       <nav>
         <ul className='menu_list'>
