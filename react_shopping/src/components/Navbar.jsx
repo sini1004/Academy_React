@@ -6,6 +6,7 @@
 //$ json-server --watch db.json --port 5000 : 작동 (로컬서버를 할 경우)
 
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { FiLogIn } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";
 import './Navbar.scss'
@@ -13,12 +14,18 @@ import './Navbar.scss'
 const Navbar = () => {
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
   return (
-    <>
-      <div className='login_btn'>
-        <FiLogIn /> <span>로그인</span>
+    <div>
+      <div className='login_btnWrap'>
+        <div className='login_btn'>
+          <FiLogIn /> <span>로그인</span>
+        </div>
       </div>
       <h1>
-        <img src="img/logo.png" alt="LACOSTE" />
+        <Link to='/'> 
+          <div className='img_wrap'>
+            <img src="../img/logo.png" alt="LACOSTE" />
+          </div>
+        </Link>
       </h1>
       <nav>
         <ul className='menu_list'>
@@ -31,7 +38,7 @@ const Navbar = () => {
         <BiSearch />
         <input type="text" placeholder='제품검색'/>
       </div>
-    </>
+    </div>
   )
 }
 

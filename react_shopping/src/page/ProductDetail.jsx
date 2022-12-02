@@ -1,21 +1,48 @@
+// useParams : 파라미터 정보를 가져와 활용 (현재 경로에서 사용되는 모든 파라미터들이 저장되어있음)
 import React from 'react'
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import {Container, Row, Col, Dropdown, Button} from 'react-bootstrap';
+import { HiHeart, HiOutlineHeart, HiOutlineShoppingCart } from 'react-icons/hi';
+import './ProductDetail.scss'
 
-const ProductDetail = ({item}) => {
+const ProductDetail = () => {
+  const [product, setProduct] = useState(null);
+  const [heartFill, setHeartFill] = useState(false);
+  let {id} = useParams();
+
+  const getProductDetail = async() => {
+    let url = `http://localhost:5000/products/${id}`;
+    let response = await fetch(url); //브라우저는 네트워크에 요청을 보내고 프로미스객체가 반환
+    let data = await response.json();
+
+    setProduct(data);
+  };
+
+  const likeToggle = () => {
+    setHeartFill(!heartFill);
+  }
+
+  useEffect(() => {
+    getProductDetail();
+  }, []);
+
   return (
     <Container>
       <Row>
-        <Col>
-          <img src="https://imageapac1.lacoste.com/dw/image/v2/BBCL_PRD/on/demandware.static/-/Sites-master/default/dw6b3da9fc/AF214E-52N_02S_20.jpg?imwidth=915&impolicy=product" alt="" />
+        <Col xs={12} sm={8}>
+          <img src={product?.img} alt="" className='detail_img'/>
         </Col>
-        <Col>
+        <Col xs={12} sm={{ span: 3, offset: 1 }}>
           <div className="detail_titleWrap">
             <div className="detail_title">
-              제품명
+              {product?.title}
             </div>
-            <span className="like">하트모양</span>
-            <div className="detail_price">299,000원</div>
-            <div className="new">신제품</div>
+            <div className="like" onClick={likeToggle}>
+              {heartFill ? <HiHeart /> : <HiOutlineHeart />}
+            </div>
+            <div className="detail_price">{product?.price}원</div>
+            { product?.new === true ? (<div className='new'>BEST</div>) : ''}
             <div>
               <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -30,7 +57,7 @@ const ProductDetail = ({item}) => {
               </Dropdown>
             </div>
           </div>
-          <Button variant="light">추가</Button>{' '}
+          <Button variant="light"><HiOutlineShoppingCart />추가</Button>{' '}
         </Col>
       </Row>
     </Container>
