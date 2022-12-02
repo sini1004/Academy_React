@@ -30,19 +30,23 @@ const ProductDetail = () => {
   return (
     <Container>
       <Row>
-        <Col xs={12} sm={8}>
+        <Col xs={12} sm={7}>
           <img src={product?.img} alt="" className='detail_img'/>
         </Col>
-        <Col xs={12} sm={{ span: 3, offset: 1 }}>
+        <Col xs={12} sm={{ span: 4, offset: 1 }}>
           <div className="detail_titleWrap">
             <div className="detail_title">
               {product?.title}
             </div>
+
             <div className="like" onClick={likeToggle}>
-              {heartFill ? <HiHeart /> : <HiOutlineHeart />}
+              {heartFill ? <HiHeart className='heartFill'/> : <HiOutlineHeart />}
             </div>
+          </div>
+
             <div className="detail_price">{product?.price}원</div>
             { product?.new === true ? (<div className='new'>BEST</div>) : ''}
+
             <div>
               <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -56,8 +60,9 @@ const ProductDetail = () => {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-          </div>
+
           <Button variant="light"><HiOutlineShoppingCart />추가</Button>{' '}
+
         </Col>
       </Row>
     </Container>

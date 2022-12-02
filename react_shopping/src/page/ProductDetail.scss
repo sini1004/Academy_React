@@ -1,3 +1,25 @@
 .detail_img {
   width: 100%;
 }
+
+.detail_titleWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  .detail_title {
+    font-size: 1.4rem;
+  }
+  .like {
+    font-size: 1.8rem;
+    margin-top: -10px;
+    .heartFill {
+      color: #f10202;
+    }
+  }
+}
+
+.detail_price {
+}
+.new {
+}
