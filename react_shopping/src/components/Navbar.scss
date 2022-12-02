@@ -42,17 +42,17 @@ nav {
 .search {
   position: absolute;
   right: 30px;
-  border-bottom: 1px solid black;
-  // background-color: #f8f8f8;
-  // border-radius: 10px;
+  top: 200px;
+  background-color: #f8f8f8;
+  border-radius: 30px;
   width: 10vw;
   white-space: nowrap;
-  padding: 3px;
-  margin-top: -40px;
+  padding: 10px;
   input {
     width: calc(100% - 30px);
+    background-color: transparent;
     margin-left: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     vertical-align: top;
     border: none;
     outline: none;
