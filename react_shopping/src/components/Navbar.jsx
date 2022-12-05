@@ -7,6 +7,8 @@
 
 /**
  * 로그인버튼 클릭 시 로그인 페이지로 이동
+ * 
+ * nav는 authenticate, setAuthenticate 전달받아서 로그인, 로그아웃 표시되게 설정
  */
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';

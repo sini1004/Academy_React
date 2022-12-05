@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import { useState, useEffect } from 'react';
 
 //Routes는 Route를 감싸주고, 스위치 해주는 역할
+//nav는 authenticate, setAuthenticate 전달해줘서 로그인, 로그아웃 표시되게 설정
 
 /**
  * 1. 전체상품페이지(대문페이지), 로그인, 상품 상세페이지
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path='/' element={<ProductAll/>} />
         <Route path='login' element={<Login setAuthenticate={setAuthenticate}/>} />
