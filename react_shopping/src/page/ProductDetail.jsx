@@ -48,9 +48,9 @@ const ProductDetail = () => {
             { product?.new === true ? (<div className='new'>BEST</div>) : ''}
 
             <div>
-              <Dropdown>
+              <Dropdown className='detail_dropdown'>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  Size
+                  사이즈 선택하기
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -61,7 +61,7 @@ const ProductDetail = () => {
               </Dropdown>
             </div>
 
-          <Button variant="light"><HiOutlineShoppingCart />추가</Button>{' '}
+          <Button variant="light" className='detail_shoppingcart'><HiOutlineShoppingCart />쇼핑백에 추가하기</Button>{' '}
 
         </Col>
       </Row>

@@ -20,6 +20,38 @@
 }
 
 .detail_price {
+  font : {
+    size: 1.2rem;
+    weight: bold;
+  }
+  margin-bottom: 30px;
 }
 .new {
+  color: var(--color-gray);
+  margin-bottom: 30px;
+}
+
+.detail_dropdown {
+  margin-bottom: 20px;
+  & > * {
+    width: 100%;
+    text-align: left;
+  }
+  ::after {
+    position: absolute;
+    right: 10px;
+    top: calc(100% - 20px);
+  }
+}
+button {
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: var(--color-point);
+  color: white;
+}
+
+.detail_shoppingcart {
+  // text-align: left;
 }
