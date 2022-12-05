@@ -5,6 +5,7 @@ import Login from './page/Login';
 import ProductAll from './page/ProductAll';
 import ProductDetail from './page/ProductDetail';
 import Navbar from './components/Navbar';
+import { useState, useEffect } from 'react';
 
 //Routes는 Route를 감싸주고, 스위치 해주는 역할
 
@@ -21,6 +22,13 @@ import Navbar from './components/Navbar';
  * 8. 로그인, 로그아웃 토글버튼
  */
 function App() {
+  //로그인 상태 구분 (처음:로그인 안되있음)
+  const [authenticate, setAuthenticate] = useState(false);
+  
+  useEffect(()=>{
+    console.log('로그인상태는?', authenticate);
+  }, [authenticate]);
+
   return (
     <>
       <Navbar />
