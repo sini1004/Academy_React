@@ -54,9 +54,14 @@ const ProductDetail = () => {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                  { 
+                    product?.size.length > 0 &&
+                    product.size.map((item)=>(
+                    <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
+                  ))}
+                  {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
                 </Dropdown.Menu>
               </Dropdown>
             </div>
