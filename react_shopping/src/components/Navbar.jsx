@@ -12,7 +12,7 @@
  */
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { FiLogIn } from "react-icons/fi";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
 import './Navbar.scss'
 
@@ -37,7 +37,7 @@ const Navbar = () => {
     <div>
       <div className='login_btnWrap'>
         <div className='login_btn' onClick={gotoLogin}>
-          <FiLogIn /> <span>로그인</span>
+        <BiLogIn /> <span>로그인</span> <BiLogOut /> <span>로그아웃</span>
         </div>
       </div>
       <h1>
