@@ -13,6 +13,11 @@ import './Navbar.scss'
 
 const Navbar = () => {
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
+
+  const search = (event) => {
+    let keyword = event.target.value;
+    console.log('키워드', keyword);
+  }
   return (
     <div>
       <div className='login_btnWrap'>
@@ -36,7 +41,11 @@ const Navbar = () => {
       </nav>
       <div className='search'>
         <BiSearch />
-        <input type="text" placeholder='제품검색'/>
+        <input 
+          type="text" 
+          placeholder='제품검색' 
+          onKeyPress={(event) => search(event)}
+        />
       </div>
     </div>
   )
