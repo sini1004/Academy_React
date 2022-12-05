@@ -1,13 +1,17 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss'
 
 const Login = ({setAuthenticate}) => {
+
+  const navigate = useNavigate();
 
   const loginUser = (e) => {
     e.preventDefault();
     console.log('로그인함수실행');
     setAuthenticate(true);
+    navigate('/'); //첫 페이지로 이동
   }
 
   return (
