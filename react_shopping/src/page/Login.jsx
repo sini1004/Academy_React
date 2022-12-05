@@ -9,7 +9,7 @@ const Login = ({setAuthenticate}) => {
 
   const loginUser = (e) => {
     e.preventDefault();
-    setAuthenticate(true); //로그인
+    setAuthenticate(true); //로그인되게 변경
     navigate('/'); //첫 페이지로 이동
   }
 
