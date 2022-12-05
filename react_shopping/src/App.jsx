@@ -26,10 +26,6 @@ function App() {
   //로그인 상태 구분 (처음:로그인 안되있음)
   const [authenticate, setAuthenticate] = useState(false);
   
-  useEffect(()=>{
-    console.log('로그인상태는?', authenticate);
-  }, [authenticate]);
-
   return (
     <>
       <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />

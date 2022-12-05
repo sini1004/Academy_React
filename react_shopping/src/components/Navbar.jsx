@@ -16,7 +16,7 @@ import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
 import './Navbar.scss'
 
-const Navbar = () => {
+const Navbar = ({authenticate, setAuthenticate}) => {
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
 
   const navigate = useNavigate();
@@ -29,16 +29,26 @@ const Navbar = () => {
     }
   }
 
-  const gotoLogin = () => {
+  const gotoLogin = () => { //authenticate 가 false 인 상태
     navigate('/login');
   }
 
   return (
     <div>
       <div className='login_btnWrap'>
-        <div className='login_btn' onClick={gotoLogin}>
-        <BiLogIn /> <span>로그인</span> <BiLogOut /> <span>로그아웃</span>
-        </div>
+        { authenticate ? (
+          <div className='login_btn' onClick={() => {setAuthenticate}}>
+            <BiLogOut /> <span>로그아웃</span>
+          </div>
+        ) : (
+          <div className='login_btn' onClick={gotoLogin}>
+            <BiLogIn /> <span>로그인</span>
+          </div>
+        ) }
+        {/* <div className='login_btn' onClick={gotoLogin}>
+          <BiLogIn /> <span>로그인</span>
+          <BiLogOut /> <span>로그아웃</span>
+        </div> */}
       </div>
       <h1>
         <Link to='/'> 
