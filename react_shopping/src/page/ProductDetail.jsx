@@ -34,6 +34,9 @@ const ProductDetail = () => {
           <img src={product?.img} alt="" className='detail_img'/>
         </Col>
         <Col xs={12} sm={{ span: 4, offset: 1 }}>
+
+        { product?.new === true ? (<div className='new'>BEST</div>) : ''}
+        
           <div className="detail_titleWrap">
             <div className="detail_title">
               {product?.title}
@@ -45,7 +48,6 @@ const ProductDetail = () => {
           </div>
 
             <div className="detail_price">{product?.price}원</div>
-            { product?.new === true ? (<div className='new'>BEST</div>) : ''}
 
             <div>
               <Dropdown className='detail_dropdown'>

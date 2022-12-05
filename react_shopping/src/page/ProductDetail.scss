@@ -28,11 +28,10 @@
 }
 .new {
   color: var(--color-gray);
-  margin-bottom: 30px;
 }
 
 .detail_dropdown {
-  margin-bottom: 20px;
+  margin-top: 60px;
   & > * {
     width: 100%;
     text-align: left;
@@ -53,5 +52,6 @@ button {
 }
 
 .detail_shoppingcart {
+  margin-top: 20px;
   // text-align: left;
 }
