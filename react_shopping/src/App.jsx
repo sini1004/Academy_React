@@ -34,7 +34,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<ProductAll/>} />
-        <Route path='login' element={<Login/>} />
+        <Route path='login' element={<Login setAuthenticate={setAuthenticate}/>} />
         <Route path='product/:id' element={<ProductDetail/>} />
         <Route />
       </Routes> 
