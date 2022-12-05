@@ -6,7 +6,7 @@
 //$ json-server --watch db.json --port 5000 : 작동 (로컬서버를 할 경우)
 
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiLogIn } from "react-icons/fi";
 import { BiSearch } from "react-icons/bi";
 import './Navbar.scss'
@@ -14,10 +14,16 @@ import './Navbar.scss'
 const Navbar = () => {
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
 
+  const navigate = useNavigate();
+
   const search = (event) => {
-    let keyword = event.target.value;
-    console.log('키워드', keyword);
+    if(event.key === 'Enter') { //Enter 키 눌렀을 때 반응
+      let keyword = event.target.value; //event 안에 value가 있음
+      console.log('키워드', keyword);
+      navigate(`/?q=${keyword}`);
+    }
   }
+
   return (
     <div>
       <div className='login_btnWrap'>
