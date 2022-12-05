@@ -5,6 +5,9 @@
 //npm install -g json-server : json server 설치
 //$ json-server --watch db.json --port 5000 : 작동 (로컬서버를 할 경우)
 
+/**
+ * 로그인버튼 클릭 시 로그인 페이지로 이동
+ */
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { FiLogIn } from "react-icons/fi";
@@ -24,10 +27,14 @@ const Navbar = () => {
     }
   }
 
+  const gotoLogin = () => {
+    navigate('/login');
+  }
+
   return (
     <div>
       <div className='login_btnWrap'>
-        <div className='login_btn'>
+        <div className='login_btn' onClick={gotoLogin}>
           <FiLogIn /> <span>로그인</span>
         </div>
       </div>
