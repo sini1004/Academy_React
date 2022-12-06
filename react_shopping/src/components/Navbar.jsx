@@ -14,7 +14,9 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
-import './Navbar.scss'
+import { CgClose, CgMenu } from 'react-icons/cg';
+// import { IoMenu, IoClose } from 'react-icons/io';
+import './Navbar.scss';
 
 const Navbar = ({authenticate, setAuthenticate}) => {
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
@@ -35,6 +37,21 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
   return (
     <div>
+      <div className="side_menu">
+        <div className="closeBtnWrap">
+          <CgClose className="closeBtn" />
+        </div>
+        <ul className='side_menu_list'>
+          {menuList.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="burger_menu">
+        <CgMenu />
+      </div>
+
+
       <div className='login_btnWrap'>
         { authenticate ? (
           <div className='login_btn' onClick={() => {setAuthenticate(false)}}>
@@ -50,6 +67,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
           <BiLogOut /> <span>로그아웃</span>
         </div> */}
       </div>
+
       <h1>
         <Link to='/'> 
           <div className='img_wrap'>
@@ -57,6 +75,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
           </div>
         </Link>
       </h1>
+
       <nav>
         <ul className='menu_list'>
           {menuList.map((item, index) => (
@@ -64,6 +83,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
           ))}
         </ul>
       </nav>
+
       <div className='search'>
         <BiSearch />
         <input 
