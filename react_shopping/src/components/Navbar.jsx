@@ -15,10 +15,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
 import { CgClose, CgMenu } from 'react-icons/cg';
-// import { IoMenu, IoClose } from 'react-icons/io';
 import './Navbar.scss';
+import { useState } from 'react';
 
 const Navbar = ({authenticate, setAuthenticate}) => {
+  const [sideState, setSideState] = useState('-100%');
+
   const menuList = ['New','Men','Women','Kids','Sale','Polo','Collections','나의 라코스테','We are Lacoste'];
 
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
   return (
     <div>
-      <div className="side_menu">
+      <div className="side_menu" style={{left:sideState}}>
         <div className="closeBtnWrap">
           <CgClose className="closeBtn" />
         </div>
@@ -47,7 +49,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
           ))}
         </ul>
       </div>
-      <div className="burger_menu">
+      <div className="burger_menu hide">
         <CgMenu />
       </div>
 
@@ -82,16 +84,18 @@ const Navbar = ({authenticate, setAuthenticate}) => {
             <li key={index}>{item}</li>
           ))}
         </ul>
+
+        <div className='search'>
+          <BiSearch />
+          <input 
+            type="text" 
+            placeholder='제품검색' 
+            onKeyPress={(event) => search(event)}
+          />
+        </div>
       </nav>
 
-      <div className='search'>
-        <BiSearch />
-        <input 
-          type="text" 
-          placeholder='제품검색' 
-          onKeyPress={(event) => search(event)}
-        />
-      </div>
+
     </div>
   )
 }
