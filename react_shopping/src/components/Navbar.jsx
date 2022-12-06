@@ -41,7 +41,11 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     <div>
       <div className="side_menu" style={{left:sideState}}>
         <div className="closeBtnWrap">
-          <CgClose className="closeBtn" />
+          <CgClose className="closeBtn" 
+            onClick={() => {
+              setSideState('-100%');
+            }}
+          />
         </div>
         <ul className='side_menu_list'>
           {menuList.map((item, index) => (
@@ -50,7 +54,11 @@ const Navbar = ({authenticate, setAuthenticate}) => {
         </ul>
       </div>
       <div className="burger_menu hide">
-        <CgMenu />
+        <CgMenu 
+          onClick={() => {
+            setSideState('0')
+          }}
+        />
       </div>
 
 
