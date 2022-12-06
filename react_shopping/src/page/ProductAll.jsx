@@ -22,7 +22,8 @@ const ProductAll = () => {
 
   const getProducts = async() => {
     let keyword = query.get(`q`) || ''; //쿼리값을 읽어옴. q의 value(아이템을 가져옴) \ 없을 땐 빈 스트링
-    let url = `http://localhost:5000/products?q=${keyword}`;
+    let url = `https://my-json-server.typicode.com/sini1004/LACOSTE/products?q=${keyword}`;
+    // let url = `http://localhost:5000/products?q=${keyword}`;
     
     let response = await fetch(url); //브라우저는 네트워크에 요청을 보내고 프로미스객체가 반환
     let data = await response.json();
