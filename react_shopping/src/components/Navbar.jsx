@@ -37,7 +37,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     <div>
       <div className='login_btnWrap'>
         { authenticate ? (
-          <div className='login_btn' onClick={() => {setAuthenticate}}>
+          <div className='login_btn' onClick={() => {setAuthenticate(false)}}>
             <BiLogOut /> <span>로그아웃</span>
           </div>
         ) : (
