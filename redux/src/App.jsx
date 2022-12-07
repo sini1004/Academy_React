@@ -2,6 +2,8 @@
 import React from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
+import Box from './components/Box';
+import BoxSon from './components/BoxSon';
 
 function App() {
   //const [count, setCount] = useState(0);
@@ -21,6 +23,8 @@ function App() {
     <>
       <h1>{count}</h1>
       <button onClick={increase}>증가</button>
+      <Box />
+      <BoxSon />
     </>
   );
 }
