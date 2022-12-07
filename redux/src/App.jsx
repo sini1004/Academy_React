@@ -1,18 +1,21 @@
+//redux 적용, 기존 useState 제거
 import React from 'react';
-import { useState } from 'react';
 import './App.css';
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
+  const count = useSelector((state) => state.count); 
+  // useSelector : 매개변수는 함수, 그 함수는 상태를 전달받는 역할
+  // state를 함수의 매개변수로 받아옴(store에 있는 모든 state를 전달)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //dispatch 세팅
 
   const increase = () => {
     dispatch({type:'INCREMENT'});
     // 클릭 했을 때 액션(단순한 오브젝트)을 던져줌
     // 필수사항 : type(액션이름) / 선택사항 : payload(옵션)가 있어야함
-    setCount(count + 1);
+    //setCount(count + 1);
   }
   return (
     <>
