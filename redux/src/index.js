@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
   {/* sotre을 사용할 수 있게 만들어 줌 */}
-    <Provider store={sotre}>
+    <Provider store={store}>
       <App />
     </Provider>
   </>
