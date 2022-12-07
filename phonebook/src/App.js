@@ -1,14 +1,21 @@
 import styles from './App.module.css';
-import { Container, Row, Col} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import ContactForm from './components/ContactForm';
+import ContactList from './components/ContactList';
 
 function App() {
   return (
     <div className="App">
-      <h1> 📞Phone Book</h1>
+      <h1>Phone Book</h1>
       <Container>
         <Row>
-          <Col>1 of 1</Col>
-          <Col>2 of 1</Col>
+          <Col>
+            <ContactForm />
+          </Col>
+          <Col>
+            <ContactList />
+          </Col>
         </Row>
       </Container>
     </div>
