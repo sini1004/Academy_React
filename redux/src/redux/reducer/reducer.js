@@ -13,7 +13,8 @@ function reducer(state = initialState, action){
 // ****** switch 문 사용 ******
   switch (action.type) {
     case 'INCREMENT':
-      return {...state, count: state.count + 1};
+      return {...state, count: state.count + action.payload.num}; 
+      // payload 추가
     default : 
       return { ...state }
   }
