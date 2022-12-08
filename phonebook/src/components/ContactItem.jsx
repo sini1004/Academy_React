@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap';
 import style from './ContactItem.module.css'
 
-const ContactItem = () => {
+const ContactItem = ({itme}) => {
   return (
     <div className={style.box}>
       <Row>
@@ -11,8 +11,8 @@ const ContactItem = () => {
             src="https://thumbs.dreamstime.com/b/default-avatar-profile-flat-icon-social-media-user-vector-portrait-unknown-human-image-default-avatar-profile-flat-icon-184330869.jpg" alt="" />
         </Col>
         <Col md='10' className={style.text}>
-          <h5>아무말</h5>
-          <p>전화번호</p>
+          <h5>{itme.name}</h5>
+          <p>{itme.phoneNumber}</p>
         </Col>
       </Row>
     </div>
