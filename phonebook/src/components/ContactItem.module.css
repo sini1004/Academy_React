@@ -1,0 +1,18 @@
+img {
+  width: 60px;
+  border-radius: 30px;
+}
+
+.box {
+  border: 1px solid #eaeaea;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 40px;
+}
+
+.text {
+}
+.text h5, .text p {
+  line-height: 1;
+  margin-bottom: 3px;
+}

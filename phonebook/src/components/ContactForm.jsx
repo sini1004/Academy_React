@@ -5,11 +5,9 @@ const ContactForm = () => {
   return (
     <div>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formName">
           <Form.Label>이름</Form.Label>
           <Form.Control type="text" placeholder="이름을 입력해주세요." />
-          <Form.Text className="text-muted">
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formContact">
