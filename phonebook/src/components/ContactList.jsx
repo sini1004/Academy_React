@@ -5,7 +5,7 @@ import SearchBox from './SearchBox'
 
 const ContactList = ({itme}) => {
   const book = useSelector((state) => state.contactList);
-  console.log(book)
+  
   return (
     <div>
       <SearchBox />
