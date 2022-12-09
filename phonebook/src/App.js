@@ -6,14 +6,14 @@ import ContactList from './components/ContactList';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.app}>
       <h1>Phone Book</h1>
       <Container>
         <Row>
-          <Col>
+          <Col sm='6'>
             <ContactForm />
           </Col>
-          <Col>
+          <Col sm='6'>
             <ContactList />
           </Col>
         </Row>

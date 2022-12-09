@@ -6,11 +6,11 @@ const ContactItem = ({item}) => {
   return (
     <div className={style.box}>
       <Row>
-        <Col md='2'>
+        <Col xs='auto'>
           <img
             src="https://thumbs.dreamstime.com/b/default-avatar-profile-flat-icon-social-media-user-vector-portrait-unknown-human-image-default-avatar-profile-flat-icon-184330869.jpg" alt="" />
         </Col>
-        <Col md='10' className={style.text}>
+        <Col xs className={style.text}>
           <h5>{item.name}</h5>
           <p>{item.phoneNumber}</p>
         </Col>

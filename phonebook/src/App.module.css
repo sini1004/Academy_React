@@ -2,3 +2,10 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 }
+
+.app {
+  margin-top: 100px;
+}
+.app h1 {
+  margin-bottom: 50px;
+}

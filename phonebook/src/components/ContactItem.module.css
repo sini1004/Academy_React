@@ -11,8 +11,15 @@ img {
 }
 
 .text {
+  padding: 11px 0 0 20px;
 }
 .text h5, .text p {
   line-height: 1;
   margin-bottom: 3px;
+}
+h5 {
+
+}
+p {
+  color: #707070;
 }
