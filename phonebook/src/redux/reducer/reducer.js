@@ -6,6 +6,7 @@ function reducer (state = initialState, action){
   let {type, payload} = action; // action 재분해 이용
   switch (type) {
     case 'ADD_CONTACT':
+      
       return {
         ...state, 
         contactList : [
@@ -16,7 +17,7 @@ function reducer (state = initialState, action){
           },
         ],
       };
-      case 'SEARCH_BY_NAME':
+      case 'SEARCH_BY_NAME': // 케이스 새로 추가
         return (state.keyword = payload.keyword);
     default: 
       return {...state};
