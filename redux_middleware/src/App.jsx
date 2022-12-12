@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
+import CounterContainers from './container/CounterContainers';
 
 function App() {
   return (
-    <>
-      <h1>dd</h1>
-    </>
+    <CounterContainers />
   );
 }
 
