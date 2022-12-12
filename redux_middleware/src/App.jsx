@@ -4,7 +4,9 @@ import CounterContainers from './container/CounterContainers';
 
 function App() {
   return (
-    <CounterContainers />
+    <>
+      <CounterContainers />
+    </>
   );
 }
 
