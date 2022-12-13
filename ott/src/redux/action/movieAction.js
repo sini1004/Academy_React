@@ -4,10 +4,12 @@
 
 import api from '../api';
 
+const APIkey = '14291a223077021c0e41f3df8a43591e';
+
 // middleware은 함수가 함수를 리턴
 function getMovies(){
   return async(dispatch) => {
-    const popularMovieApi = await api.get(`/movie/popular?api_key=14291a223077021c0e41f3df8a43591e&language=en-US&page=1`);
+    const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
 
     // let url = `https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1`
     // let response = await fetch(url);
