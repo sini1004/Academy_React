@@ -5,7 +5,7 @@
 import api from '../api';
 
 // 받아온 키 값을 노출되지 않게 만든다 루트에 => .env 파일 생성하기
-const APIkey = '14291a223077021c0e41f3df8a43591e';
+const APIkey = process.env.REACT_APP_APIKEY;
 
 // middleware은 함수가 함수를 리턴
 function getMovies(){
