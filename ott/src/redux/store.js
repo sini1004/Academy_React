@@ -4,7 +4,7 @@ import rootReducer from './reducers';
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-let store = legacy_createStore(rootReducer, composeWithDevTools (
+let store = legacy_createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
 ));
 

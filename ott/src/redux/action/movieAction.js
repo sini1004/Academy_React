@@ -2,10 +2,12 @@
 // https://developers.themoviedb.org/3
 // https://developers.themoviedb.org/3/movies/get-popular-movies
 
+import api from '../api';
+
 // middleware은 함수가 함수를 리턴
 function getMovies(){
   return async(dispatch) => {
-    const popularMovieApi = await api.get(`/movie/popular?api_key=<<api_key>>&language=en-US&page=1`);
+    const popularMovieApi = await api.get(`/movie/popular?api_key=14291a223077021c0e41f3df8a43591e&language=en-US&page=1`);
 
     // let url = `https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1`
     // let response = await fetch(url);
@@ -18,8 +20,11 @@ function getMovies(){
     // let url3 = `https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1`
     // let response3 = await fetch(url3);
     // let data3 = await response.json();
-  }
+  };
 }
+
+export const movieAction = { getMovies };
+
 
 /**
  * 외부 API 호출 방법
