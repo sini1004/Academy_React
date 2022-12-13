@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <Navbar bg="dark" expand="lg" variant='dark' className='nav_top'>
+    <Navbar expand="lg" variant='dark' className='nav_top'>
       <Container fluid>
         <Navbar.Brand href="#">
-          <img width={140} src="/logo.png" alt="lgoo" />
+          <img width={100} src="/logo.png" alt="lgoo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -29,7 +29,7 @@ const Navigation = () => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success" style={{background:'#fe1f5a'}}>Search</Button>
+            <Button variant="outline-success" className='nav_button'>Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>
