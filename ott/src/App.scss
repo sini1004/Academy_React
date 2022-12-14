@@ -1,6 +1,10 @@
 $main-color: #13e683;
 $back-color: #080e12;
 
+body {
+  background-color: $back-color;
+  color: $main-color;
+}
 a {
   text-decoration: none;
 }
@@ -27,5 +31,13 @@ a {
       border: 1px solid $main-color;
       color: $main-color;
     }
+  }
+}
+
+.banner {
+  height: 50vw;
+  background: {
+    size: cover;
+    position: center center;
   }
 }
