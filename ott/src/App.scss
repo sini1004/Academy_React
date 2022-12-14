@@ -5,7 +5,13 @@ $main-color: #13e683;
 $back-color: #080e12;
 
 $wide-width: "(min-width:1440px)";
-$small-width: "(max-width:565px)";
+$middle-width: "(min-width:768px)";
+$small-width: "(min-width:360px)";
+
+// Breakpoints
+$breakpoint-mobile: 335px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1440px;
 
 body {
   background-color: $back-color;
@@ -42,7 +48,7 @@ a {
 }
 
 .banner {
-  height: 55vw;
+  height: 45vw;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -81,22 +87,52 @@ a {
 }
 
 // 반응형
-@media #{$wide-width} {
-  .banner {
-    height: 676px;
-  }
-  h1 {
-    height: 84px;
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
   }
 }
-@media #{$small-width} {
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@include mobile {
   .banner {
-    height: 376px;
+    height: 56vw;
+    .banner_info {
+      width: 95%;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      h1 {
+      }
+    }
   }
-  h1 {
-    height: 28px;
+}
+
+@include tablet {
+  .banner {
+    height: 50vw;
+    .banner_info {
+      width: 70%;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+      h1 {
+      }
+    }
   }
-  p {
-    display: none;
+}
+
+@include desktop {
+  .banner {
+    height: 55vw;
   }
 }
