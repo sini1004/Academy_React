@@ -3,13 +3,22 @@
 
 
 // 초기값 비워두기
-let initialState = {}
+let initialState = {
+  popularMovies: {}, 
+  topRatedMovies: {}, 
+  upcomingdMovies: {}
+}
 
 // 상태가 필요함 (항상 2개 필요 : state,action)
 function movieReducer(state=initialState, action){
+  let {type, payload} = action;
   switch(type){
-    case : 
-      return{}
+    case 'GET_MOVIE_SUCCESS' :
+      return{ ...state, 
+        popularMovies:payload.popularMovies, 
+        topRatedMovies:payload.topRatedMovies, 
+        upcomingdMovies:payload.upcomingdMovies
+      }
     default :
       return{}
   }
