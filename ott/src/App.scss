@@ -42,7 +42,7 @@ a {
 }
 
 .banner {
-  height: 40vw;
+  height: 55vw;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -83,13 +83,16 @@ a {
 // 반응형
 @media #{$wide-width} {
   .banner {
-    height: 576px;
+    height: 676px;
   }
   h1 {
-    height: 144px;
+    height: 84px;
   }
 }
 @media #{$small-width} {
+  .banner {
+    height: 376px;
+  }
   h1 {
     height: 28px;
   }
