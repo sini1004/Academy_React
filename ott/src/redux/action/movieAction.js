@@ -9,7 +9,7 @@ const APIkey = process.env.REACT_APP_APIKEY;
 
 // middleware은 함수가 함수를 리턴
 function getMovies(){
-  return async(dispatch) => {
+  return async(dispatch) => { 
     const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
     const topRatedMovieApi = await api.get(`/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`);
     const upcomingdMovieApi = await api.get(`/movie/upcoming?api_key=${APIkey}&language=en-US&page=1`);
@@ -21,10 +21,21 @@ function getMovies(){
     // console.log(data)
 
     // getMovies의 3개 데이터따로 받아오기.
-    let [popularMovie, topRatedMovie, upcomingdMovie] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
-    console.log('popularMovie? : ', popularMovie);
-    console.log('topRatedMovie? : ', topRatedMovie);
-    console.log('upcomingdMovie? : ', upcomingdMovie);
+    let [popularMovies, topRatedMovies, upcomingdMovies] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
+    // console.log('popularMovie? : ', popularMovie);
+    // console.log('topRatedMovie? : ', topRatedMovie);
+    // console.log('upcomingdMovie? : ', upcomingdMovie);
+
+    //type, 보내주기 (movieReducer.js로)
+    dispatch({
+      type: 'GET_MOVIE_SUCCESS',
+      payload: {
+        popularMovie : popularMovies.data,
+        topRatedMovies : topRatedMovies.data,
+        upcomingdMovies : upcomingdMovies.data
+      }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
+    })
+
   };
 }
 
