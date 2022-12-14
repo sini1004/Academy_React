@@ -4,6 +4,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Banner from '../components/Banner';
+import MovieSlide from '../components/MovieSlide';
 import { movieAction } from '../redux/action/movieAction';
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
   return (
     <div>
       {/* 조건부 렌더링을 걸지 않으면 데이터를 받아 오기 전에 에러 */}
-      {popularMovies.results && <Banner movie={popularMovies.results[9]}/>}
+      {popularMovies.results && <Banner movie={popularMovies.results[19]}/>}
       {/* { 
         popularMovies.results && 
         popularMovies.results.map((i) =>{
@@ -32,8 +33,13 @@ const Home = () => {
       } */}
 
       <h2>popularMovies</h2>
+        <MovieSlide movie={popularMovies}/>
+
       <h2>topRatedMovies</h2>
+        <MovieSlide movie={topRatedMovies}/>
+
       <h2>upcomingdMovies</h2>
+        <MovieSlide movie={upcomingdMovies}/>
     </div>
   )
 }
