@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div>
-      <Banner />
+      {popularMovies.results &&<Banner movie={popularMovies.results[0]}/>}
       Home-대문페이지입니다.
     </div>
   )
