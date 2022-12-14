@@ -3,6 +3,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import Banner from '../components/Banner';
 import { movieAction } from '../redux/action/movieAction';
 
 const Home = () => {
@@ -18,7 +19,10 @@ const Home = () => {
   },[]);
 
   return (
-    <div>Home-대문페이지입니다.</div>
+    <div>
+      <Banner />
+      Home-대문페이지입니다.
+    </div>
   )
 }
 
