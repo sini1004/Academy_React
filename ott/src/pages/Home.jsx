@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div>
       {/* 조건부 렌더링을 걸지 않으면 데이터를 받아 오기 전에 에러 */}
-      {popularMovies.results && <Banner movie={popularMovies.results[0]}/>}
+      {popularMovies.results && <Banner movie={popularMovies.results[3]}/>}
       Home-대문페이지입니다.
     </div>
   )
