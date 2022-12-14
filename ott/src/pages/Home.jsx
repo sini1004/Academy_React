@@ -2,12 +2,17 @@
 
 import React from 'react'
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { movieAction } from '../redux/action/movieAction';
 
 const Home = () => {
   const dispatch = useDispatch();
   // 화면이 켜지자마자 데이터 불러오기, Redux Middleware(비동기 방식)
+
+  // store에서 가져옴
+  const {popularMovies, topRatedMovies, upcomingdMovies} = useSelector((state) => state.movie);
+  console.log('확인해보기 : ', popularMovies);
+
   useEffect(()=> {
     dispatch(movieAction.getMovies());
   },[]);

@@ -7,7 +7,7 @@ let initialState = {
   popularMovies: {}, 
   topRatedMovies: {}, 
   upcomingdMovies: {}
-}
+};
 
 // 상태가 필요함 (항상 2개 필요 : state,action)
 function movieReducer(state=initialState, action){
@@ -20,7 +20,7 @@ function movieReducer(state=initialState, action){
         upcomingdMovies:payload.upcomingdMovies
       }
     default :
-      return{}
+      return{ ...state};
   }
 }
 

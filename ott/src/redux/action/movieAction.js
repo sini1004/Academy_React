@@ -30,7 +30,7 @@ function getMovies(){
     dispatch({
       type: 'GET_MOVIE_SUCCESS',
       payload: {
-        popularMovie : popularMovies.data,
+        popularMovies : popularMovies.data,
         topRatedMovies : topRatedMovies.data,
         upcomingdMovies : upcomingdMovies.data
       }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
