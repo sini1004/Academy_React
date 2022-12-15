@@ -14,7 +14,7 @@ function getMovies(){
     // try catch (error 났을 때 상황)
     try{
       // 로딩전 던져줌 (loading spinner 관련)
-      dispatch({type:'GET_MOVIE_REQUST', payload});
+      dispatch({type:'GET_MOVIE_REQUST'});
 
       const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
       const topRatedMovieApi = await api.get(`/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`);

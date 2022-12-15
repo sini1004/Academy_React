@@ -26,16 +26,18 @@ const Home = () => {
   // loading false : 데이터 도착 후 / 에러 => 데이터 보여줌 / 에러나면 에러메세지
 
   if(loading) {
-    <div className="loader_container">
-      <BeatLoader
-        color='#13e683'
-        loading={loading}
-        margin={10}
-        size={15}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
-    </div>
+    return(
+      <div className="loader_container">
+        <BeatLoader
+          color='#13e683'
+          loading={loading}
+          margin={10}
+          size={15}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    )
   } 
 
   return (
