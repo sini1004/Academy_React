@@ -1,6 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 $main-color: #13e683;
 $back-color: #080e12;
 
@@ -16,7 +37,7 @@ $breakpoint-desktop: 1440px;
 body {
   background-color: $back-color;
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: "GmarketSansLight", "Roboto", sans-serif;
 }
 a {
   text-decoration: none;
@@ -93,6 +114,15 @@ a {
   }
 }
 
+.slide_container {
+  h2 {
+    span {
+      text-transform: uppercase;
+      color: $main-color;
+    }
+  }
+}
+
 // 반응형
 @mixin mobile {
   @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
@@ -123,6 +153,11 @@ a {
       }
     }
   }
+  .slide_container {
+    width: 96%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
 }
 
 @include tablet {
@@ -136,10 +171,23 @@ a {
       }
     }
   }
+  .slide_container {
+    width: 96%;
+    margin: 0 auto;
+  }
 }
 
 @include desktop {
   .banner {
     height: 55vw;
+  }
+  .slide_container {
+    border: 2px solid red;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 30px;
+    h2 {
+      margin: 50px 0;
+    }
   }
 }

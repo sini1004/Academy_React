@@ -48,19 +48,20 @@ const Home = () => {
         popularMovies.results && 
         popularMovies.results.map((i) =>{
           <Banner movie={popularMovies.results[i]}/>
-        }
-          
+        }  
         )
       } */}
 
-      <h2>popularMovies</h2>
+      <div className="slide_container">
+        <h2><span>popular</span> Movies</h2>
         <MovieSlide movie={popularMovies}/>
 
-      <h2>topRatedMovies</h2>
-        <MovieSlide movie={topRatedMovies}/>
+        <h2>topRatedMovies</h2>
+          <MovieSlide movie={topRatedMovies}/>
 
-      <h2>upcomingdMovies</h2>
-        <MovieSlide movie={upcomingdMovies}/>
+        <h2>upcomingdMovies</h2>
+          <MovieSlide movie={upcomingdMovies}/>
+      </div>
     </div>
   )
 }
