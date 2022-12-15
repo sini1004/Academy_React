@@ -18,7 +18,7 @@
 @font-face {
   font-family: "GmarketSansBold";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -126,22 +126,59 @@ a {
 }
 
 .card_wrap {
-  .card {
+  .card_movie {
     height: 400px;
     margin: 0 10px;
     position: relative;
+    border-radius: 10px;
+    cursor: pointer;
     background: {
       size: cover;
       position: center center;
     }
+    overflow: hidden;
+    &:hover {
+      .card_info {
+        opacity: 1;
+      }
+    }
     .card_info {
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      h2 {
-        padding: 0;
-        margin-bottom: 10px;
-        font-size: 1rem;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.5);
+      opacity: 0;
+      transition: 0.3s ease-in;
+      .card_info_wrap {
+        position: absolute;
+        width: 90%;
+        left: 0;
+        bottom: 10px;
+        padding: 5px;
+        h3 {
+          padding: 0;
+          margin-bottom: 10px;
+          font-size: 1rem;
+        }
+        .badge {
+          padding: 3px;
+          margin-right: 3px;
+        }
+        .card_infosub {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-top: 20px;
+          p {
+          }
+          .r_rated {
+            color: red;
+          }
+          .g_rated {
+            color: $main-color;
+            font-weight: 700;
+          }
+        }
       }
     }
   }
