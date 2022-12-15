@@ -126,7 +126,7 @@ a {
 
 .card_wrap {
   .card {
-    height: 300px;
+    height: 400px;
     margin: 0 10px;
     position: relative;
     background: {
@@ -144,6 +144,17 @@ a {
       }
     }
   }
+}
+
+.footer {
+  width: 100%;
+  margin-top: 120px;
+  padding: 50px;
+  border-top: 3px solid $main-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 // 반응형
