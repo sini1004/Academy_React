@@ -6,29 +6,36 @@ import 'react-multi-carousel/lib/styles.css';
 import MovieCard from './MovieCard';
 
 const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 1441 },
+    items: 5
+  },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
+    breakpoint: { max: 1440, min: 1025 },
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2 // optional, default to 1.
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1 // optional, default to 1.
+    items: 2
   }
 };
 
 
 const MovieSlide = ({movie}) => {
+  console.log(movie)
   return (
     <div>
       <Carousel responsive={responsive}>
-        <div><MovieCard/></div>
+        {movie.results.map((item) => (
+          <div className='card_wrap'>
+            <MovieCard item={item}/>
+          </div>
+        ))}
+
         <div>Item 2</div>
         <div>Item 3</div>
         <div>Item 4</div>

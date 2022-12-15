@@ -123,6 +123,18 @@ a {
   }
 }
 
+.card_wrap {
+  .card {
+    border: 2px solid red;
+    height: 300px;
+    margin: 0 10px;
+    background: {
+      size: cover;
+      position: center center;
+    }
+  }
+}
+
 // 반응형
 @mixin mobile {
   @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
@@ -150,6 +162,9 @@ a {
       margin-left: 1rem;
       margin-bottom: 1rem;
       h1 {
+      }
+      p {
+        display: none;
       }
     }
   }
