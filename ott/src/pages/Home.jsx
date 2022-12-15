@@ -56,10 +56,10 @@ const Home = () => {
         <h2><span>popular</span> Movies</h2>
         <MovieSlide movie={popularMovies}/>
 
-        <h2>topRatedMovies</h2>
+        <h2><span>topRated</span> Movies</h2>
           <MovieSlide movie={topRatedMovies}/>
 
-        <h2>upcomingdMovies</h2>
+        <h2><span>upcomingd</span> Movies</h2>
           <MovieSlide movie={upcomingdMovies}/>
       </div>
     </div>
