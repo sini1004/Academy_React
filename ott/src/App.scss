@@ -116,6 +116,7 @@ a {
 
 .slide_container {
   h2 {
+    margin: 40px 0 20px;
     span {
       text-transform: uppercase;
       color: $main-color;
@@ -125,12 +126,22 @@ a {
 
 .card_wrap {
   .card {
-    border: 2px solid red;
     height: 300px;
     margin: 0 10px;
+    position: relative;
     background: {
       size: cover;
       position: center center;
+    }
+    .card_info {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      h2 {
+        padding: 0;
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -197,7 +208,6 @@ a {
     height: 55vw;
   }
   .slide_container {
-    border: 2px solid red;
     width: 95%;
     margin: 0 auto;
     padding-top: 30px;
