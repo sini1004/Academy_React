@@ -10,32 +10,38 @@ const APIkey = process.env.REACT_APP_APIKEY;
 // middleware은 함수가 함수를 리턴
 function getMovies(){
   return async(dispatch) => { 
-    const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
-    const topRatedMovieApi = await api.get(`/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`);
-    const upcomingdMovieApi = await api.get(`/movie/upcoming?api_key=${APIkey}&language=en-US&page=1`);
 
+    // try catch (error 났을 때 상황)
+    try{
+      // 로딩전 던져줌 (loading spinner 관련)
+      dispatch({type:'GET_MOVIE_REQUST', payload});
 
-    // getMovies의 3개 데이터(popularMovieApi,topRatedMovieApi,upcomingdMovieApi)를 병력롤 동시에 불러오기.
-    // Promise.all 방식으로
-    // let data = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
-    // console.log(data)
+      const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
+      const topRatedMovieApi = await api.get(`/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`);
+      const upcomingdMovieApi = await api.get(`/movie/upcoming?api_key=${APIkey}&language=en-US&page=1`);
 
-    // getMovies의 3개 데이터따로 받아오기.
-    let [popularMovies, topRatedMovies, upcomingdMovies] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
-    // console.log('popularMovie? : ', popularMovie);
-    // console.log('topRatedMovie? : ', topRatedMovie);
-    // console.log('upcomingdMovie? : ', upcomingdMovie);
+      // getMovies의 3개 데이터(popularMovieApi,topRatedMovieApi,upcomingdMovieApi)를 병력롤 동시에 불러오기.
+      // Promise.all 방식으로
+      // let data = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
+      // console.log(data)
 
-    //type, 보내주기 (movieReducer.js로)
-    dispatch({
-      type: 'GET_MOVIE_SUCCESS',
-      payload: {
-        popularMovies : popularMovies.data,
-        topRatedMovies : topRatedMovies.data,
-        upcomingdMovies : upcomingdMovies.data
-      }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
-    })
+      // getMovies의 3개 데이터따로 받아오기.
+      let [popularMovies, topRatedMovies, upcomingdMovies] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
 
+      // type, 보내주기 (movieReducer.js로)
+      // 데이터 도착 후
+      dispatch({
+        type: 'GET_MOVIE_SUCCESS',
+        payload: {
+          popularMovies : popularMovies.data,
+          topRatedMovies : topRatedMovies.data,
+          upcomingdMovies : upcomingdMovies.data
+        }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
+      });
+    } catch(error){ 
+      // 에러 핸들링
+      dispatch({type: 'GET_MOVIE_FAIL'});
+    }
   };
 }
 

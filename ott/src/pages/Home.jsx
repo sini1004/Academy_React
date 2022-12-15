@@ -25,18 +25,21 @@ const Home = () => {
   // loading true : 데이터 도착 전 => loading spinner 보여줌
   // loading false : 데이터 도착 후 / 에러 => 데이터 보여줌 / 에러나면 에러메세지
 
-  return (
-    <div>
+  if(loading) {
+    <div className="loader_container">
       <BeatLoader
         color='#13e683'
         loading={loading}
         margin={10}
-        // cssOverride={override}
         size={15}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
+    </div>
+  } 
 
+  return (
+    <div>
       {/* 조건부 렌더링을 걸지 않으면 데이터를 받아 오기 전에 에러 */}
       {popularMovies.results && <Banner movie={popularMovies.results[19]}/>}
       {/* { 
