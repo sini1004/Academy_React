@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Badge } from 'react-bootstrap';
+import Trailer from './Trailer';
 
 const MovieExplain = ({item}) => {
   return (
@@ -27,7 +28,9 @@ const MovieExplain = ({item}) => {
             <div className='detail_overview'>
               {item.overview}
             </div>
-            <div>비디오</div>
+            <div>
+              <Trailer />
+            </div>
           </Col>
         </Row>
       </Container>
