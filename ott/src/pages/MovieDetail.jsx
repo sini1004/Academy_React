@@ -10,7 +10,7 @@ const MovieDetail = () => {
   // 파라미터만 받아오기
   const {id} = useParams();
 
-  const {detailMovies, loading} = useSelector((state) => state.movie);
+  const {detailMovies, loading, trailerVideo} = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
   useEffect(()=> {
@@ -35,7 +35,7 @@ const MovieDetail = () => {
 
   return (
     <div>
-      <MovieExplain item={detailMovies}/>
+      <MovieExplain item={detailMovies} videoId={trailerVideo}/>
       <br />
       <br />
       <h1>영화리뷰 공간</h1>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col, Badge } from 'react-bootstrap';
 import Trailer from './Trailer';
 
-const MovieExplain = ({item}) => {
+const MovieExplain = ({item, videoId}) => {
   return (
     <div>
       <div className='detail_banner'>
