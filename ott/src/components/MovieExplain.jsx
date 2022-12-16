@@ -5,6 +5,16 @@ import Trailer from './Trailer';
 const MovieExplain = ({item}) => {
   return (
     <div>
+      <div className='detail_banner'>
+        <div className='banner_img'>
+          <img 
+              className='detail_img'
+              src={`https://www.themoviedb.org/t/p/original/${item.backdrop_path}`} alt="" />
+        </div>
+        <div className="banner_title">
+          <p>{item.title}</p>
+        </div>
+      </div>
       <Container>
         <Row>
           <Col md={6}>

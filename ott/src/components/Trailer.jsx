@@ -1,10 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import YouTube from 'react-youtube';
 
 const Trailer = () => {
 
   const [show, setShow] = useState(false);
+
+  const opts = {
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  };
+  const _onReady = (event) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
+
   return (
     <div>
       <Button className='trailer_button' onClick={() => setShow(true)}>
@@ -19,15 +32,7 @@ const Trailer = () => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <p>
-            Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-            commodi aspernatur enim, consectetur. Cumque deleniti temporibus
-            ipsam atque a dolores quisquam quisquam adipisci possimus
-            laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
-            accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
-            reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
-            deleniti rem!
-          </p>
+          <YouTube videoId=" " opts={opts} onReady={_onReady} />
         </Modal.Body>
       </Modal>
     </div>
