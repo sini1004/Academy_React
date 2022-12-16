@@ -1,14 +1,24 @@
 import React from 'react'
 import {Badge} from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({item}) => {
   // sotre에서 genresList 불러옴
   const {genreList} = useSelector((state) => state.movie);
+  
+  // useNavigate
+  const navigate = useNavigate();
+
+  // Card 클릭 시 디테일페이지로 넘어가기
+  const gotodDetail = () => {
+    navigate(`/movies/${item.id}`);
+  } 
+
   return (
-    <div className='card_movie'
-    style={{
-      backgroundImage:`URL("https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/${item.backdrop_path}")`
+    <div onClick={gotodDetail} 
+    className='card_movie'
+    style={{ backgroundImage:`URL("https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/${item.backdrop_path}")`
     }}>
       <div className='card_info'>
         <div className='card_info_wrap'>
