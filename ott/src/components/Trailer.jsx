@@ -9,6 +9,8 @@ const Trailer = ({item}) => {
 
   const opts = {
     playerVars: {
+      height: '390',
+      width: '100%',
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
