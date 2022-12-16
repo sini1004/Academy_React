@@ -1,7 +1,10 @@
 import React from 'react'
 import {Badge} from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const MovieCard = ({item}) => {
+  // sotre에서 genresList 불러옴
+  const {genreList} = useSelector((state) => state.movie);
   return (
     <div className='card_movie'
     style={{
@@ -12,7 +15,7 @@ const MovieCard = ({item}) => {
           <h3>{item.title}</h3>
           <div className='badge'>
             {item.genre_ids.map((id) => (
-              <Badge bg="success">{id}</Badge>
+              <Badge bg="success">{genreList.find((item) => item.id === id).name}</Badge>
             ))}
           </div>
           <div className="card_infosub">

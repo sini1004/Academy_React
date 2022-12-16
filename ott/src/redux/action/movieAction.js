@@ -2,6 +2,8 @@
 // https://developers.themoviedb.org/3
 // https://developers.themoviedb.org/3/movies/get-popular-movies
 
+// 장르 추가하기
+
 import api from '../api';
 
 // 받아온 키 값을 노출되지 않게 만든다 루트에 => .env 파일 생성하기
@@ -19,6 +21,8 @@ function getMovies(){
       const popularMovieApi = await api.get(`/movie/popular?api_key=${APIkey}&language=en-US&page=1`);
       const topRatedMovieApi = await api.get(`/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`);
       const upcomingdMovieApi = await api.get(`/movie/upcoming?api_key=${APIkey}&language=en-US&page=1`);
+      // 장르 api가져옴
+      const genreApi = await api.get(`/genre/movie/list?api_key=${APIkey}&language=en-US`);
 
       // getMovies의 3개 데이터(popularMovieApi,topRatedMovieApi,upcomingdMovieApi)를 병력롤 동시에 불러오기.
       // Promise.all 방식으로
@@ -26,7 +30,7 @@ function getMovies(){
       // console.log(data)
 
       // getMovies의 3개 데이터따로 받아오기.
-      let [popularMovies, topRatedMovies, upcomingdMovies] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi]);
+      let [popularMovies, topRatedMovies, upcomingdMovies, genreList] = await Promise.all([popularMovieApi, topRatedMovieApi, upcomingdMovieApi, genreApi]);
 
       // type, 보내주기 (movieReducer.js로)
       // 데이터 도착 후
@@ -35,9 +39,11 @@ function getMovies(){
         payload: {
           popularMovies : popularMovies.data,
           topRatedMovies : topRatedMovies.data,
-          upcomingdMovies : upcomingdMovies.data
+          upcomingdMovies : upcomingdMovies.data,
+          genreList : genreList.data.genres
         }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
       });
+      console.log('장르?', genreApi)
     } catch(error){ 
       // 에러 핸들링
       dispatch({type: 'GET_MOVIE_FAIL'});
