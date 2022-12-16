@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
-const Trailer = () => {
+const Trailer = ({item}) => {
 
   const [show, setShow] = useState(false);
 
@@ -17,6 +17,11 @@ const Trailer = () => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
+
+  // "Official Trailer"가 있을 때
+  const official = item.results?.find((item) => {
+    return item.name === 'Official Trailer';
+  });
 
   return (
     <div>
@@ -32,7 +37,7 @@ const Trailer = () => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <YouTube videoId=" " opts={opts} onReady={_onReady} />
+          <YouTube videoId={official?.key || item.results[0].key} opts={opts} onReady={_onReady} />
         </Modal.Body>
       </Modal>
     </div>

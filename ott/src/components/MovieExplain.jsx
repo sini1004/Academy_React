@@ -39,7 +39,7 @@ const MovieExplain = ({item, videoId}) => {
               {item.overview}
             </div>
             <div>
-              <Trailer />
+              <Trailer item={videoId}/>
             </div>
           </Col>
         </Row>
