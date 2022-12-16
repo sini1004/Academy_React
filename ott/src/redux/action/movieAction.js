@@ -43,7 +43,6 @@ function getMovies(){
           genreList : genreList.data.genres
         }, // data필드만 보내줌 (Axios는 받은 데이터를 data필드에 넣어서 줌)
       });
-      console.log('장르?', genreApi)
     } catch(error){ 
       // 에러 핸들링
       dispatch({type: 'GET_MOVIE_FAIL'});
@@ -51,7 +50,27 @@ function getMovies(){
   };
 }
 
-export const movieAction = { getMovies };
+// 디테일 데이터 가져오기
+function getDetailMovies(id){
+  return async(dispatch) => { 
+    try {
+      dispatch({type:'GET_D_MOVIE_REQUST'});
+      const detailMovieApi = await api.get(`/movie/${id}?api_key=${APIkey}&language=en-US`);
+
+      let [detailMovies] = await Promise.all([detailMovieApi]);
+
+      dispatch({
+        type:'GET_D_MOVIE_SUCCESS', 
+        payload:{detailMovies:detailMovies.data}
+      });
+    }
+    catch(error){
+      dispatch({type:'GET_D_MOVIE_FAIL'});
+    }
+  }
+}
+
+export const movieAction = { getMovies, getDetailMovies };
 
 
 /**
