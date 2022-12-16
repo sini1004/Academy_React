@@ -3,6 +3,7 @@
 // https://developers.themoviedb.org/3/movies/get-popular-movies
 
 // 장르 추가하기
+// youtube 추가하기
 
 import api from '../api';
 
@@ -57,11 +58,13 @@ function getDetailMovies(id){
       dispatch({type:'GET_D_MOVIE_REQUST'});
       const detailMovieApi = await api.get(`/movie/${id}?api_key=${APIkey}&language=en-US`);
 
-      let [detailMovies] = await Promise.all([detailMovieApi]);
+      const trailerVideoApi = await api.get(`/movie/${id}/videos?api_key=${APIkey}&language=en-US`);
+
+      let [detailMovies, trailerVideo] = await Promise.all([detailMovieApi, trailerVideoApi]);
 
       dispatch({
         type:'GET_D_MOVIE_SUCCESS', 
-        payload:{detailMovies:detailMovies.data}
+        payload:{detailMovies:detailMovies.data, trailerVideo:trailerVideo.data}
       });
     }
     catch(error){

@@ -3,6 +3,7 @@
 // loading spinner 추가
 // 장르 추가
 // 디테일 추가
+// youtube 추가
 
 // 초기값 비워두기
 let initialState = {
@@ -11,7 +12,8 @@ let initialState = {
   upcomingdMovies: {},
   loading: true,
   genreList: [],
-  detailMovies: {}
+  detailMovies: {},
+  trailerVideo: {}
 };
 
 // 상태가 필요함 (항상 2개 필요 : state,action)
@@ -35,6 +37,7 @@ function movieReducer(state=initialState, action){
     case 'GET_D_MOVIE_SUCCESS' :
       return{ ...state, 
         detailMovies:payload.detailMovies,
+        trailerVideo:payload.trailerVideo,
         loading : false
       };
     case 'GET_D_MOVIE_FAIL' :
