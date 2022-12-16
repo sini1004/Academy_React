@@ -2,7 +2,9 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import MovieExplain from '../components/MovieExplain'
 import { movieAction } from '../redux/action/movieAction'
+import BeatLoader from "react-spinners/BeatLoader";
 
 const MovieDetail = () => {
   // 파라미터만 받아오기
@@ -15,8 +17,28 @@ const MovieDetail = () => {
     dispatch(movieAction.getDetailMovies(id));
   },[]);
 
+  if(loading) {
+    return(
+      <div className="loader_container">
+        <BeatLoader
+          color='#13e683'
+          loading={loading}
+          margin={10}
+          size={15}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    )
+  } 
+
   return (
-    <div>MovieDetail-영화상세페이지입니다.</div>
+    <div>
+      <MovieExplain item={detailMovies}/>
+      <br />
+      <br />
+      <h1>영화리뷰 공간</h1>
+    </div>
   )
 }
 

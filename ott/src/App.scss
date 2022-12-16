@@ -184,6 +184,20 @@ a {
   }
 }
 
+.detail_img {
+  width: 100%;
+  border-radius: 10px;
+}
+.detail_info {
+  display: flex;
+}
+.detail_overview {
+  border-top: 2px solid $main-color;
+  border-bottom: 2px solid $main-color;
+  padding: 20px;
+  margin: 30px 0;
+}
+
 .footer {
   width: 100%;
   margin-top: 120px;
