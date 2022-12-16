@@ -15,6 +15,7 @@ const MovieDetail = () => {
 
   useEffect(()=> {
     dispatch(movieAction.getDetailMovies(id));
+    window.scrollTo(0, 0);
   },[]);
 
   if(loading) {
