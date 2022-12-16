@@ -12,9 +12,9 @@ const MovieExplain = ({item}) => {
               className='detail_img'
               src={`https://www.themoviedb.org/t/p/original/${item.poster_path}`} alt="" />
             </Col>
-          <Col md={6}>
+          <Col md={6} className="detail_wrap">
             {item.genres?.map((item) => (
-              <Badge bg="success" key={item.id}>{item.name}</Badge>
+              <Badge bg="success" className='detail_badge' key={item.id}>{item.name}</Badge>
             ))}
             <h1>{item.title}</h1>
             <h1>{item.tagline}</h1>
