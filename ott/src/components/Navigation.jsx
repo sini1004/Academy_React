@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <Navbar expand="lg" variant='dark' className='nav_top'>
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="/" >
           <img width={100} src="/logo.png" alt="lgoo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

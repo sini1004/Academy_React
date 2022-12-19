@@ -14,7 +14,7 @@ const MovieDetail = () => {
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    dispatch(movieAction.getDetailMovies(id));
+    dispatch(movieAction.getMoviesDetail(id));
     window.scrollTo(0, 0);
   },[id]);
 
