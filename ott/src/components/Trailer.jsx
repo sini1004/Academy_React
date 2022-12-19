@@ -21,8 +21,17 @@ const Trailer = ({item}) => {
   }
 
   // "Official Trailer"가 있을 때
-  const official = item.results?.find((item) => {
-    return item.name === 'Official Trailer';
+  const trailer = item.results?.find((item) => {
+    if(item.name === 'Official Trailer'){ 
+      return item;
+    }
+  });
+  // type에 "Trailer"가 있을 때
+
+  const trailer2 = item.results?.find((item) => {
+    if(item.name === 'Trailer'){ 
+      return item;
+    }
   });
 
   return (
@@ -39,7 +48,7 @@ const Trailer = ({item}) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <YouTube videoId={official?.key || item.results[0].key} opts={opts} onReady={_onReady} />
+          <YouTube videoId={trailer?.key ? trailer?.key : trailer2?.key} opts={opts} onReady={_onReady} />
         </Modal.Body>
       </Modal>
     </div>

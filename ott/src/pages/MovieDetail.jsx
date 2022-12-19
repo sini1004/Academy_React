@@ -16,7 +16,7 @@ const MovieDetail = () => {
   useEffect(()=> {
     dispatch(movieAction.getDetailMovies(id));
     window.scrollTo(0, 0);
-  },[]);
+  },[id]);
 
   if(loading) {
     return(
@@ -38,7 +38,6 @@ const MovieDetail = () => {
       <MovieExplain item={detailMovies} videoId={trailerVideo}/>
       <br />
       <br />
-      <h1>영화리뷰 공간</h1>
     </div>
   )
 }

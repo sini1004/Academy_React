@@ -196,6 +196,12 @@ a {
   }
   .detail_info {
     display: flex;
+    p {
+      margin-right: 10px;
+    }
+    span {
+      margin-right: 10px;
+    }
   }
   .detail_overview {
     border-top: 2px solid $main-color;
