@@ -4,6 +4,7 @@
 // 장르 추가
 // 디테일 추가
 // youtube 추가
+// redux toolkit
 
 // 초기값 비워두기
 let initialState = {
